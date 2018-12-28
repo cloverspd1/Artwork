@@ -1,0 +1,829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Resources.Artwork" Collapsed="true">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>9jAnSCYGoAmILXDgA0yHVURgz2Pg1QBhCkIgFsR0AYQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resources.Common" Collapsed="true">
+    <Position X="22.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQIAMSXQBhWBEAAApEABECBLQQMQgCAAACYgBJAAEJA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resources.Common_ActivityLogs" Collapsed="true">
+    <Position X="24.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAQAAAAAAgEAAAABEAAAAwAABEAAAgkAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resources.Common_ApplicationStatus" Collapsed="true">
+    <Position X="26.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgQACAQgBAAEAIAABEAAAAQCABCAAQAEAAAAAoIE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resources.Feedbacks" Collapsed="true">
+    <Position X="14" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBCCTAAABCkQRUAgEUABEQQwASEQhEABgCSAQBQBBqY=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resources.NPD" Collapsed="true">
+    <Position X="24.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>PNmPACw5NakDCTLYsZyD8HQjrUN2uxBheFQISRGBM74=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.BundleConfig" Collapsed="true">
+    <Position X="15.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.FilterConfig" Collapsed="true">
+    <Position X="17.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.RouteConfig" Collapsed="true">
+    <Position X="19.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.MvcExceptionHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Filters\MvcExceptionHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.SharePointContextFilterAttribute" Collapsed="true">
+    <Position X="22.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Filters\SharePointContextFilterAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.ValidateAntiForgeryTokenOnAllPosts" Collapsed="true">
+    <Position X="12.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAIAAAAQAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Filters\ValidateAntiForgeryTokenOnAllPosts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.MvcApplication" Collapsed="true">
+    <Position X="22.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAEAAAAAAAAAAEAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.SharePointContext" Collapsed="true">
+    <Position X="6.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAEAgAAZACGhAGAAASAEEEGBAIVIAEAEAQBAAAA=</HashCode>
+      <FileName>SharePointContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.SharePointContextProvider" Collapsed="true">
+    <Position X="1.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAABAAAAAACAACAgAAAgAABAAAAAAAAAACAQAA=</HashCode>
+      <FileName>SharePointContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.SharePointAcsContext" Collapsed="true">
+    <Position X="5.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAQAAIAABAAkAAAQAAAAAAAAAgAEAAIAAAACA=</HashCode>
+      <FileName>SharePointContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.SharePointAcsContextProvider" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAABAAAAAAAAAAAgAAAAAAAAAAAAAAAAAEIQAA=</HashCode>
+      <FileName>SharePointContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.SharePointHighTrustContext" Collapsed="true">
+    <Position X="7.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAABAAAAIAABAAgAAAQAAAAAAAAQAAEAAAAAAAAA=</HashCode>
+      <FileName>SharePointContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.SharePointHighTrustContextProvider" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAABAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAIQAA=</HashCode>
+      <FileName>SharePointContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.TokenHelper" Collapsed="true">
+    <Position X="26.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARwQgAgDQQtxEAACgQAgUkgEAUggADVYAQAgAgQCABE=</HashCode>
+      <FileName>TokenHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.SharePointContextToken" Collapsed="true">
+    <Position X="24.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAQAAAgAAACAAAAAAAAAAAAEAAAAAAAAAgADA=</HashCode>
+      <FileName>TokenHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.MultipleSymmetricKeySecurityToken" Collapsed="true">
+    <Position X="21" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAIAAAAAAAABAAAAAAAAAAIAACAAACAAAAAQAgA=</HashCode>
+      <FileName>TokenHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.BusinessLayer.BusinessLayerBase" Collapsed="true">
+    <Position X="17.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessLayer\BusinessLayerBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.BusinessLayer.CommonBusinessLayer" Collapsed="true">
+    <Position X="28" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAAAAAGAAAmAAAEAAAgAAQABAUAAAAgAAAAA=</HashCode>
+      <FileName>BusinessLayer\CommonBusinessLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.BusinessLayer.ExistingArtworkBusinessLayer" Collapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAABEACAAAAAIEJABAAAAAAAAABAUDAgAAAgAAA=</HashCode>
+      <FileName>BusinessLayer\ExistingArtworkBusinessLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.BusinessLayer.NewArtworkBusinessLayer" Collapsed="true">
+    <Position X="22.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYCAAAAAACAABCAAEIAAAAEAAAAAABAUBAgAAAAAgA=</HashCode>
+      <FileName>BusinessLayer\NewArtworkBusinessLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.BusinessLayer.ViewArtworkBusinessLayer" Collapsed="true">
+    <Position X="15.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAABEIABAACAAAAAAAAUCAEAAAAAAA=</HashCode>
+      <FileName>BusinessLayer\ViewArtworkBusinessLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Common.FileListHelper" Collapsed="true">
+    <Position X="15.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAACAAAAAAAAAEAEAAAIQAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Common\FileListHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Common.Logger" Collapsed="true">
+    <Position X="17.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Common\Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Common.SessionExpiration" Collapsed="true">
+    <Position X="21" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\SessionExpiration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Common.UtilityHelper" Collapsed="true">
+    <Position X="28" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\UtilityHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Common.ValidateJsonAntiForgeryTokenAttribute" Collapsed="true">
+    <Position X="14" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ValidateJsonAntiForgeryTokenAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Web.Mvc.Html.Helper" Collapsed="true">
+    <Position X="21" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAQAACEAAQAAEAIAAAAAAAAAAAQCAAAIAAAAgAEAA=</HashCode>
+      <FileName>Common\Helper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Controllers.AdminController" Collapsed="true">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Controllers\Admin\AdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Controllers.BaseController" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCAAAAlIYIAIYQQAAiCgEEAMiIKAAAEgAAIABQAAAQA=</HashCode>
+      <FileName>Controllers\BaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Controllers.ExistingArtworkController" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAkAAAAAAkAAAAQAAIkCAEAAEAAgAggAAEAAAAAgSE=</HashCode>
+      <FileName>Controllers\ExistingArtwork\ExistingArtworkAdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Controllers.ExistingArtworkBaseController" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAiAAAAAAAAAAAAAAAABAAAAAAAAAAAAGAAAAEAAgA=</HashCode>
+      <FileName>Controllers\ExistingArtwork\ExistingArtworkBaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Controllers.MasterController" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAEAAAAAAAAAQAAAAAAAAAAAAAAgBAACAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\Master\MasterController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Controllers.NewArtworkController" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEAAAAAAkAAAAAAAJEAAAAAAAAgAggAAEAAAAAgSE=</HashCode>
+      <FileName>Controllers\NewArtwork\NewArtworkAdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Controllers.NewArtworkBaseController" Collapsed="true">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAEAAgA=</HashCode>
+      <FileName>Controllers\NewArtwork\NewArtworkBaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Controllers.ViewArtwork.ViewArtworkBaseController" Collapsed="true">
+    <Position X="9.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAAAAAAAAABAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ViewArtwork\ViewArtworkBaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Controllers.ViewArtwork.ViewArtworkController" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABgAAECAEAAAAAAAAEAAEAAAAA=</HashCode>
+      <FileName>Controllers\ViewArtwork\ViewArtworkController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.ArtworkFormNames" Collapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAABAAAAAAAAAAAAAAAAAAAQAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Models\Common\ArtworkConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.ArtworkListNames" Collapsed="true">
+    <Position X="22.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAQAAEAEAAABCAASAAAAACAJAAAAAIIAAAAAAAA=</HashCode>
+      <FileName>Models\Common\ArtworkConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.ArtworkMasters" Collapsed="true">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEEJAAAAAAAAAIQAAQAAAAAAAAAAABA=</HashCode>
+      <FileName>Models\Common\ArtworkConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.ArtworkApplicationNameConstants" Collapsed="true">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Common\ArtworkConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.ArtworkSectionName" Collapsed="true">
+    <Position X="28" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ECEACAgAAAAQAAAAEAgAAAAAAAAAAAAAAAEEAAAAgQA=</HashCode>
+      <FileName>Models\Common\ArtworkConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.ArtworkRoles" Collapsed="true">
+    <Position X="26.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAAAgAQAgAQACBQBAABAAAAARAAACAAAAABAAA=</HashCode>
+      <FileName>Models\Common\ArtworkConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.ArtworkCommonConstant" Collapsed="true">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAgAAAAAwAAACAEAAACIAAQAEAAABAAAAAAA=</HashCode>
+      <FileName>Models\Common\ArtworkConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.FormNames" Collapsed="true">
+    <Position X="19.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Models\Common\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.ListNames" Collapsed="true">
+    <Position X="15.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Models\Common\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.Masters" Collapsed="true">
+    <Position X="19.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAACAAAAAEAQAAAAAAIAAIAAACAAAEAADAAAADA=</HashCode>
+      <FileName>Models\Common\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.NPDSectionName" Collapsed="true">
+    <Position X="26.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAhAAAgAAAAACAAAAAAAAAAAAQAAAAABAAAAAAA=</HashCode>
+      <FileName>Models\Common\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.Roles" Collapsed="true">
+    <Position X="14" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAQAAAAAAAABAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Common\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.ExistingArtworkNoCount" Collapsed="true">
+    <Position X="22.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAABAAAgAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\Common\ExistingArtworkNoCount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Common.NewArtworkNoCount" Collapsed="true">
+    <Position X="15.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAABAAAgAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\Common\NewArtworkNoCount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkABSQApproverSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAQEAAAAiCQwEAAAAIAAADAAAAAQAAAEAgAIAYA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkABSQApproverSection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkABSQTeamSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAANAAAAiAAgEAAAIIAAADAQAAAAAAAEIggIAYA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkABSQTeamSection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkADBLevel1Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAEAAAAiAAgEAAAAIAAADAgAAAAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkADBLevel1Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkADBLevel2Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAEAAAAiCAgEAAAAIAAADAAAAAAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkADBLevel2Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkAttachment" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAANAAFAgAQCAAAAAAABAAAAAAAAAAEAAABAQIA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkAttachment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkBUHeadApproverSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAiCAgEAAAAIAAADAACAIAAAAEAgAIAQA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkBUHeadApproverSection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkContract" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkContract.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkDetailSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAQNBAhYjIQxkAIAAKAQADKhagYVAAAcgikJUYI=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkDetailSection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAIAAQAAAAEBAAAAAAAAAAAAAACAAE=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkMarketingLevel1Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQEAAAAiAAgEAAAAIAAADCAAAAAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkMarketingLevel1Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkMarketingLevel2Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQEAAAAiCAgEAAAAIAAADAAAAAAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkMarketingLevel2Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkQALevel1Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAiAAgEAAAAJAAADAAAAQAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkQALevel1Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkQALevel2Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAiCAgEAAAAIAAADAAAAAAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkQALevel2Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkSCMLevel1Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAiAEgEAAAAIAAADAAAACAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkSCMLevel1Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkSCMLevel2Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAiCAgEAAAAIAAADAAAACAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\ExistingArtwork\ExistingArtworkSCMLevel2Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkAdminDetailSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABDDAAQNBAgcnIUxkAIAILAQCDKxagaVAAAcojkJUYI=</HashCode>
+      <FileName>Models\ExistingArtworkAdmin\ExistingArtworkAdminDetailSection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ExistingArtwork.ExistingArtworkAdminForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAIAAQAAAAEBAAAAAAAAAAAAAACAAE=</HashCode>
+      <FileName>Models\ExistingArtworkAdmin\ExistingArtworkAdminForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ApproverMaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAgAIAAAAAgA=</HashCode>
+      <FileName>Models\Master\ApproverMaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ApproverMasterListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAQCBIAEACABBAAAAAAAAAIABAAACgAgAAIAA=</HashCode>
+      <FileName>Models\Master\ApproverMasterListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ArtworkTypeMaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAgAIAAAAAgA=</HashCode>
+      <FileName>Models\Master\ArtworkTypeMaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ArtworkTypeMasterListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEAAAAAAAAABAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\Master\ArtworkTypeMasterListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.BusinessUnitMaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAgAIAAAAAgA=</HashCode>
+      <FileName>Models\Master\BusinessUnitMaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.BusinessUnitMasterListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\Master\BusinessUnitMasterListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ExistingApproverMaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAgAIAAAAAgA=</HashCode>
+      <FileName>Models\Master\ExistingApproverMaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ExistingApproverMasterListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQIAQAQAAEAEAAAAEQAAAACAAEAAQAAAIkAgAgAAA=</HashCode>
+      <FileName>Models\Master\ExistingApproverMasterListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ItemMaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAgAIAAAAAgA=</HashCode>
+      <FileName>Models\Master\ItemMaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ItemMasterArtworkTypeMappingMaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAgAIAAAAAgA=</HashCode>
+      <FileName>Models\Master\ItemMasterArtworkTypeMappingMaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ItemMasterArtworkTypeMappingMasterListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAJAABAgEQCAAAAAAABAAAAAAAAAAAgAABAQIA=</HashCode>
+      <FileName>Models\Master\ItemMasterArtworkTypeMappingMasterListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ItemMasterListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACABAAAIgEABgAIAAAASAAAhQgQRAAAgggkBEAI=</HashCode>
+      <FileName>Models\Master\ItemMasterListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ItemSearchMaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAgAIAAAAAgA=</HashCode>
+      <FileName>Models\Master\ItemSearchMaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ItemSearchMasterListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAEAAAAAAAAAAAAAAAAAAAAAgAAgAAAA=</HashCode>
+      <FileName>Models\Master\ItemSearchMasterListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ProductCategoryMaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAgAIAAAAAgA=</HashCode>
+      <FileName>Models\Master\ProductCategoryMaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.ProductCategoryMasterListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAgAgAAAAA=</HashCode>
+      <FileName>Models\Master\ProductCategoryMasterListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.RoleWiseApproverMaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAgAIAAAAAgA=</HashCode>
+      <FileName>Models\Master\RoleWiseApproverMaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.Master.RoleWiseApproverMasterListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAMAAACAAAAAAAAAAAAAAgAgAAAAA=</HashCode>
+      <FileName>Models\Master\RoleWiseApproverMasterListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkABSQApproverSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAEAAAAiCAgEAAAAIAAADAAAAAAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkABSQApproverSection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkABSQTeamSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAFAAQAiAAgEAAAIIAAADAQAAAAAAAEIggIAYA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkABSQTeamSection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkADBLevel1Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAEAAAAiAAgEAAAAIAAADAgAAAAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkADBLevel1Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkADBLevel2Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAQEAAAAiCQwEAAAAIAAADAAAAAQAAAEAgAIAYA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkADBLevel2Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkAttachment" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAANAAFAgAQCAAAAAAABAAAAAAAAAAEAAABAQIA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkAttachment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkBUHeadApproverSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAiCAgEAAAAIAAADAACAIAAAAEAgAIAQA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkBUHeadApproverSection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkContract" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkContract.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkDetailSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAANBAgYiIAhkAIAAIAQALKhagYVAAAcggkJUYI=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkDetailSection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAIAAQAAAAEBAAAAAAAAAAAAAACAAE=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkMarketingLevel1Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQEAAAAiAAgEAAAAIAAADCAAAAAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkMarketingLevel1Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkMarketingLevel2Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQEAAAAiCQwEAAAAIAAADAAAAAQAAAEAgAIAYA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkMarketingLevel2Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkQALevel1Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAiAAgEAAAAJAAADAAAAQAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkQALevel1Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkQALevel2Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQEAAAAiCQwEAAAAIAAADAAAAAQAAAEAgAIAYA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkQALevel2Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkSCMLevel1Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAiAEgEAAAAIAAADAAAACAAAAEAgAIAYA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkSCMLevel1Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkSCMLevel2Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQEAAAAiCQwEAAAAIAAADAAAACQAAAEAgAIAYA=</HashCode>
+      <FileName>Models\NewArtwork\NewArtworkSCMLevel2Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkAdminDetailSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABDDAAQNBAhcmIEhkAIAIJAQCLKxagaVAAAcohkJUYI=</HashCode>
+      <FileName>Models\NewArtworkAdmin\NewArtworkAdminDetailSection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkAdminForm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAIAAQAAAAEBAAAAAAAAAAAAAACAAE=</HashCode>
+      <FileName>Models\NewArtworkAdmin\NewArtworkAdminForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BEL.ArtworkWorkflow.Models.ViewArtwork.ViewArtworkDetailSection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAANAAhYjIAhkAIAAYASADChQgQRAAAFgikDUII=</HashCode>
+      <FileName>Models\ViewArtwork\ViewArtworkDetailSection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Enum Name="BEL.ArtworkWorkflow.RedirectionStatus" Collapsed="true">
+    <Position X="12.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAQAAAAABAAAAAAA=</HashCode>
+      <FileName>SharePointContext.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="System.Web.Mvc.Html.ResourceNames" Collapsed="true">
+    <Position X="14" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEQAAACAAAAEAAAAAAAAAAAABAQAAA=</HashCode>
+      <FileName>Common\ResourceNames.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

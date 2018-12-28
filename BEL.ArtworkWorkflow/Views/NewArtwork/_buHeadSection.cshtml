@@ -1,0 +1,76 @@
+﻿@using BEL.ArtworkWorkflow.Models.NewArtwork
+@using BEL.ArtworkWorkflow.Models.Common
+@using BEL.ArtworkWorkflow.Models.Master;
+@using BEL.CommonDataContract;
+@model NewArtworkBUHeadApproverSection
+
+<script type="text/javascript">
+    @{
+
+        //ApproverMaster approverlist = Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(Masters.APPROVERMASTER)) as ApproverMaster;
+
+      }
+
+
+
+</script>
+<div id="divBUHeadSection">
+    @using (Ajax.BeginForm("SaveBUHeadSection", "NewArtwork", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        LoadingElementId = "loading",
+        OnFailure = "OnFailure",
+        OnSuccess = "OnSuccess",
+        OnBegin = "BeginClient"
+    }, new { enctype = "multipart/form-data" }))
+    {
+
+        @Html.HiddenFor(m => m.ListDetails[0].ItemId)
+        @Html.HiddenFor(m => m.ListDetails[0].ListName)
+        @Html.HiddenFor(m => m.SectionName)
+        @Html.HiddenFor(m => m.SendBackTo)
+        @Html.HiddenFor(m => m.ActionStatus)
+        @Html.HiddenFor(m => m.Status)
+        @Html.HiddenFor(m => m.OldArtworkRejectedDate)
+        @Html.HiddenFor(m => m.OldArtworkRejectedComment)
+
+        @Html.Partial("_ApproversList", Model.ApproversList)
+        @Html.AntiForgeryToken()
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextAreaFor(m => m.CurrentApprover.Comments, new { maxlength = 255, @class = "form-control requiredOnSendBack", @data_val = "true", @data_val_required = "Comments/Remarks is required (max allow 255 char.)", data_toggle = "tooltip", title = "Max 255 characters" })
+                            @Html.HiddenFor(x => x.CurrentApprover.Approver)
+                            @Html.HiddenFor(x => x.CurrentApprover.Role)
+                            @Html.HiddenFor(x => x.CurrentApprover.AssignDate)
+                            @Html.ValidationMessageFor(m => m.CurrentApprover.Comments, ResourceNames.Artwork)
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    }
+</div>

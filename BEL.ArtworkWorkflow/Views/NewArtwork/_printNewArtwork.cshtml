@@ -1,0 +1,1292 @@
+﻿@using BEL.ArtworkWorkflow.Models.NewArtwork;
+@using BEL.ArtworkWorkflow.Models.Common;
+@using BEL.ArtworkWorkflow.Models.Master;
+@using BEL.CommonDataContract;
+@using Newtonsoft.Json;
+@model NewArtworkContract
+@{
+    string strBU = string.Empty;
+    string strProductCategory = string.Empty;
+    NewArtworkForm form = Model.Forms.FirstOrDefault() as NewArtworkForm;
+    ViewBag.Title = Html.ResourceValue("Page_Title", ResourceNames.Artwork);
+    NewArtworkDetailSection newArtworkDetailSection = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.ARTWORKDETAILSECTION)) as NewArtworkDetailSection;
+    NewArtworkBUHeadApproverSection newArtworkBUHeadSection = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.BUHEADAPPROVERSECTION)) as NewArtworkBUHeadApproverSection;
+    NewArtworkABSQTeamSection newArtworkABSQTeamSection = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.ABSQTEAMSECTION)) as NewArtworkABSQTeamSection;
+    NewArtworkABSQApproverSection newArtworkABSQApproverSection = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.ABSQAPPROVERSECTION)) as NewArtworkABSQApproverSection;
+    NewArtworkQALevel1Section newArtworkQALevel1Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.QALEVEL1SECTION)) as NewArtworkQALevel1Section;
+    NewArtworkQALevel2Section newArtworkQALevel2Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.QALEVEL2SECTION)) as NewArtworkQALevel2Section;
+    NewArtworkSCMLevel1Section newArtworkSCMLevel1Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.SCMLEVEL1SECTION)) as NewArtworkSCMLevel1Section;
+    NewArtworkSCMLevel2Section newArtworkSCMLevel2Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.SCMLEVEL2SECTION)) as NewArtworkSCMLevel2Section;
+    NewArtworkADBLevel1Section newArtworkADBLevel1Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.ADBLEVEL1SECTION)) as NewArtworkADBLevel1Section;
+    NewArtworkADBLevel2Section newArtworkADBLevel2Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.ADBLEVEL2SECTION)) as NewArtworkADBLevel2Section;
+    NewArtworkMarketingLevel1Section newArtworkMarketingLevel1Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.MARKETINGLEVEL1SECTION)) as NewArtworkMarketingLevel1Section;
+    NewArtworkMarketingLevel2Section newArtworkMarketingLevel2Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.MARKETINGLEVEL2SECTION)) as NewArtworkMarketingLevel2Section;
+}
+<div class="hidden">
+    <div id="divprint">
+        <!DOCTYPE HTML>
+
+        <html>
+        <head>
+
+            <title>Print New Artwork</title>
+        </head>
+        <body>
+
+            <div id="printContent" class="col-md-12">
+                <style type="text/css">
+                    .modal-dialog {
+                        width: 75% !important;
+                    }
+
+                    .txtAreaJustify {
+                        text-align: justify;
+                    }
+                </style>
+                <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                    <div class="row borderBottom">
+                        <div class="col-xs-6 col-sm-6 col-md-6 rightBorder" style="vertical-align:middle">
+
+
+                            <img id="logo" src="~/images/index.png" width="100%" />
+
+
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            <div class="row">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.ItemCode, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+                                    @if (newArtworkDetailSection != null && newArtworkDetailSection.ItemCode != null)
+                                    {
+                                        @newArtworkDetailSection.ItemCode
+                                    }
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.ModelName, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left txtAreaJustify">
+                                    @if (newArtworkDetailSection != null && newArtworkDetailSection.ModelName != null)
+                                    {
+                                        @newArtworkDetailSection.ModelName
+                                    }
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <h4 class="print-bold">ARTWORK DETAIL SECTION</h4>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+
+                        </div>
+                    </div>
+                    @if (!string.IsNullOrEmpty(newArtworkDetailSection.OldReferenceNo))
+                    {
+
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left bold print-bold">
+                                        @Html.LabelFor(m => newArtworkDetailSection.OldReferenceNo, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @Html.DisplayFor(m => newArtworkDetailSection.OldReferenceNo, ResourceNames.Artwork)
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkDetailSection.OldArtworkCreatedDate, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @(newArtworkDetailSection.OldArtworkCreatedDate.HasValue ? newArtworkDetailSection.OldArtworkCreatedDate.Value.ToShortDateString() : string.Empty)
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkDetailSection.OldArtworkRejectedDate, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @(newArtworkDetailSection.OldArtworkRejectedDate.HasValue ? newArtworkDetailSection.OldArtworkRejectedDate.Value.ToShortDateString() : string.Empty)
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                    }
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.RequestDate, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.RequestDate, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.ProposedBy, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.ProposedByName, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.ReferenceNo, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.ReferenceNo, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.Status, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @(string.IsNullOrEmpty(newArtworkDetailSection.WorkflowStatus) ? Html.ResourceValue("Text_New", ResourceNames.Common) : newArtworkDetailSection.WorkflowStatus)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left bold print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.ItemCode, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.ItemCode, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @if (newArtworkDetailSection != null)
+                                    {
+                                        strBU = newArtworkDetailSection.BusinessUnit;
+                                        strProductCategory = newArtworkDetailSection.MasterData.FirstOrDefault(x => x.NameOfMaster == ArtworkMasters.PRODUCTCATEGORYMASTER).Items.FirstOrDefault(x => x.Value == newArtworkDetailSection.ProductCategory).Title;
+                                    }
+                                    @Html.LabelFor(m => newArtworkDetailSection.BusinessUnit, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.BusinessUnit, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left bold print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.DomesticOrImported, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.DomesticOrImported, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.ProductCategory, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.ProductCategory, ResourceNames.Artwork) - @strProductCategory
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.ModelName, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.ModelName, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.Color, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.Color, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.BarCode, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.BarCode, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.MRP, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.MRP, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.UnitCartonDimensionL, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    L:   @Html.DisplayFor(m => newArtworkDetailSection.UnitCartonDimensionL, ResourceNames.Artwork) X
+                                    W:   @Html.DisplayFor(m => newArtworkDetailSection.UnitCartonDimensionW, ResourceNames.Artwork) X
+                                    H:   @Html.DisplayFor(m => newArtworkDetailSection.UnitCartonDimensionH, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.MasterCartondimensionL, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    L:   @Html.DisplayFor(m => newArtworkDetailSection.MasterCartondimensionL, ResourceNames.Artwork) X
+                                    W:   @Html.DisplayFor(m => newArtworkDetailSection.MasterCartondimensionW, ResourceNames.Artwork) X
+                                    H:   @Html.DisplayFor(m => newArtworkDetailSection.MasterCartondimensionH, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.NoofCartoninMaster, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.NoofCartoninMaster, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.Voltage, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.Voltage, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.Power, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.Power, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.NetWeight, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.NetWeight, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.GrossWeight, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.GrossWeight, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.Warranty, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.Warranty, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.ProductFeature, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left txtAreaJustify">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.ProductFeature, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.Product, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.Product, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                @if (!string.IsNullOrEmpty(newArtworkDetailSection.Product) && newArtworkDetailSection.Product == "Local")
+                                {
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkDetailSection.VendorCode, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @Html.DisplayFor(m => newArtworkDetailSection.VendorCode, ResourceNames.Artwork)
+
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    @if (!string.IsNullOrEmpty(newArtworkDetailSection.Product) && newArtworkDetailSection.Product == "Local")
+                    {
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkDetailSection.VendorAddress, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @Html.DisplayFor(m => newArtworkDetailSection.VendorAddress, ResourceNames.Artwork)
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.FNLSamplePhoto, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+                                    @if (newArtworkDetailSection != null && !string.IsNullOrEmpty(newArtworkDetailSection.FNLSamplePhoto))
+                                    {
+                                        foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>(newArtworkDetailSection.FNLSamplePhoto))
+                                        {
+                                            @file.FileName
+                                            <div class="clearfix"></div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                    @Html.LabelFor(m => newArtworkDetailSection.ArtworkType, ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left txtAreaJustify">
+
+                                    @Html.DisplayFor(m => newArtworkDetailSection.ArtworkType, ResourceNames.Artwork)
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </div>
+                                <div class="col-xs-8 col-md-8 col-sm-8 text-left txtAreaJustify">
+
+                                    @if (newArtworkDetailSection.CurrentApprover.Comments != null)
+                                    {
+                                        @newArtworkDetailSection.CurrentApprover.Comments
+                                    }
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                @if (newArtworkBUHeadSection != null)
+                {
+
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <h4 class="print-bold">BU HEAD APPROVER SECTION</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left txtAreaJustify">
+
+                                        @if (newArtworkBUHeadSection.CurrentApprover.Comments != null)
+                                        {
+                                            @newArtworkBUHeadSection.CurrentApprover.Comments
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (newArtworkABSQTeamSection != null)
+                {
+
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <h4 class="print-bold">ABSQ TEAM SECTION</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-9 col-md-9 col-sm-9 text-left txtAreaJustify">
+
+                                        @if (newArtworkABSQTeamSection.CurrentApprover.Comments != null)
+                                        {
+                                            @newArtworkABSQTeamSection.CurrentApprover.Comments
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkABSQTeamSection.FNLTechnicalSpecificationAttachment, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @if (newArtworkABSQTeamSection != null && !string.IsNullOrEmpty(newArtworkABSQTeamSection.FNLTechnicalSpecificationAttachment))
+                                        {
+                                            foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>(newArtworkABSQTeamSection.FNLTechnicalSpecificationAttachment))
+                                            {
+                                                @file.FileName
+                                                <div class="clearfix"></div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkABSQTeamSection.FNLQAPAttachment, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @if (newArtworkABSQTeamSection != null && !string.IsNullOrEmpty(newArtworkABSQTeamSection.FNLQAPAttachment))
+                                        {
+                                            foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>(newArtworkABSQTeamSection.FNLQAPAttachment))
+                                            {
+                                                @file.FileName
+                                                <div class="clearfix"></div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row borderBottom">
+                            <div class="table-responsive">
+                                <table class="table table-hover someTable text-center margin-bottom-none print-artworkType-bold">
+                                    <thead>
+                                        <tr>
+                                            <td class="text-left rightBorder leftnone-border">Sr No</td>
+                                            <td class="text-left rightBorder">@Html.ResourceValue("Grid_Title_ArtworkType", ResourceNames.Artwork)</td>
+                                            <td class="text-left rightnone-border">@Html.ResourceValue("Grid_Title_FileName", ResourceNames.Artwork)</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (newArtworkABSQTeamSection.ArtworkAttachmentList != null && newArtworkABSQTeamSection.ArtworkAttachmentList.Count > 0)
+                                        {
+                                            for (int idx = 0; idx < newArtworkABSQTeamSection.ArtworkAttachmentList.Count; idx++)
+                                            {
+                                                <tr>
+                                                    <td class="text-left leftnone-border rightBorder">@(idx + 1)</td>
+                                                    <td class="text-left rightBorder">@((newArtworkABSQTeamSection.ArtworkAttachmentList[idx] as NewArtworkAttachment).ArtworkType)</td>
+                                                    <td class="text-left rightnone-border">
+                                                        @if (newArtworkABSQTeamSection != null && !string.IsNullOrEmpty((newArtworkABSQTeamSection.ArtworkAttachmentList[idx] as NewArtworkAttachment).FileNameList))
+                                                        {
+                                                            foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>((newArtworkABSQTeamSection.ArtworkAttachmentList[idx] as NewArtworkAttachment).FileNameList))
+                                                            {
+                                                                @file.FileName
+                                                                <div class="clearfix"></div>
+                                                            }
+                                                        }
+                                                    </td>
+
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td colspan="3" class="text-center text-danger">
+                                                    @Html.ResourceValue("Grid_Text_NoArtworkType", ResourceNames.Artwork)
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (newArtworkABSQApproverSection != null)
+                {
+
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <h4 class="print-bold">ABSQ APPROVER SECTION</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-9 col-md-9 col-sm-9 text-left txtAreaJustify">
+
+                                        @if (newArtworkABSQApproverSection.CurrentApprover.Comments != null)
+                                        {
+                                            @newArtworkABSQApproverSection.CurrentApprover.Comments
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+                @if (newArtworkQALevel1Section != null)
+                {
+
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <h4 class="print-bold">QA LEVEL 1 SECTION</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-9 col-md-9 col-sm-9 text-left txtAreaJustify">
+
+                                        @if (newArtworkQALevel1Section.CurrentApprover.Comments != null)
+                                        {
+                                            @newArtworkQALevel1Section.CurrentApprover.Comments
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.ResourceValue("Label_ReworkRequired", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @(newArtworkQALevel1Section.QALevel1ReworkRequired ? "Yes" : "NO")
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkQALevel1Section.FNLQALevel1Attachment, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @if (newArtworkQALevel1Section != null && !string.IsNullOrEmpty(newArtworkQALevel1Section.FNLQALevel1Attachment))
+                                        {
+                                            foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>(newArtworkQALevel1Section.FNLQALevel1Attachment))
+                                            {
+                                                @file.FileName
+                                                <div class="clearfix"></div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (newArtworkSCMLevel1Section != null)
+                {
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <h4 class="print-bold">SCM LEVEL 1 SECTION</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-9 col-md-9 col-sm-9 text-left txtAreaJustify">
+
+                                        @if (newArtworkSCMLevel1Section.CurrentApprover.Comments != null)
+                                        {
+                                            @newArtworkSCMLevel1Section.CurrentApprover.Comments
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.ResourceValue("Label_ReworkRequired", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @(newArtworkSCMLevel1Section.SCMLevel1ReworkRequired ? "Yes" : "NO")
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkSCMLevel1Section.FNLSCMLevel1Attachment, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @if (newArtworkSCMLevel1Section != null && !string.IsNullOrEmpty(newArtworkSCMLevel1Section.FNLSCMLevel1Attachment))
+                                        {
+                                            foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>(newArtworkSCMLevel1Section.FNLSCMLevel1Attachment))
+                                            {
+                                                @file.FileName
+                                                <div class="clearfix"></div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (newArtworkADBLevel1Section != null)
+                {
+
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <h4 class="print-bold">ADB LEVEL 1 SECTION</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-9 col-md-9 col-sm-9 text-left txtAreaJustify">
+
+                                        @if (newArtworkADBLevel1Section.CurrentApprover.Comments != null)
+                                        {
+                                            @newArtworkADBLevel1Section.CurrentApprover.Comments
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.ResourceValue("Label_ReworkRequired", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @(newArtworkADBLevel1Section.ADBLevel1ReworkRequired ? "Yes" : "NO")
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkADBLevel1Section.FNLADBLevel1Attachment, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @if (newArtworkADBLevel1Section != null && !string.IsNullOrEmpty(newArtworkADBLevel1Section.FNLADBLevel1Attachment))
+                                        {
+                                            foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>(newArtworkADBLevel1Section.FNLADBLevel1Attachment))
+                                            {
+                                                @file.FileName
+                                                <div class="clearfix"></div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (newArtworkMarketingLevel1Section != null)
+                {
+
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <h4 class="print-bold">@strBU MARKETING LEVEL 1 SECTION</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-9 col-md-9 col-sm-9 text-left txtAreaJustify">
+
+                                        @if (newArtworkMarketingLevel1Section.CurrentApprover.Comments != null)
+                                        {
+                                            @newArtworkMarketingLevel1Section.CurrentApprover.Comments
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.ResourceValue("Label_ReworkRequired", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @(newArtworkMarketingLevel1Section.MarketingLevel1ReworkRequired ? "Yes" : "NO")
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkMarketingLevel1Section.FNLMarketingLevel1Attachment, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @if (newArtworkMarketingLevel1Section != null && !string.IsNullOrEmpty(newArtworkMarketingLevel1Section.FNLMarketingLevel1Attachment))
+                                        {
+                                            foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>(newArtworkMarketingLevel1Section.FNLMarketingLevel1Attachment))
+                                            {
+                                                @file.FileName
+                                                <div class="clearfix"></div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (newArtworkQALevel2Section != null)
+                {
+
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <h4 class="print-bold">QA LEVEL 2 SECTION</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-9 col-md-9 col-sm-9 text-left txtAreaJustify">
+
+                                        @if (newArtworkQALevel2Section.CurrentApprover.Comments != null)
+                                        {
+                                            @newArtworkQALevel2Section.CurrentApprover.Comments
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkQALevel2Section.FNLQALevel2Attachment, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @if (newArtworkQALevel2Section != null && !string.IsNullOrEmpty(newArtworkQALevel2Section.FNLQALevel2Attachment))
+                                        {
+                                            foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>(newArtworkQALevel2Section.FNLQALevel2Attachment))
+                                            {
+                                                @file.FileName
+                                                <div class="clearfix"></div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (newArtworkSCMLevel2Section != null)
+                {
+
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <h4 class="print-bold">SCM LEVEL 2 SECTION</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-9 col-md-9 col-sm-9 text-left txtAreaJustify">
+
+                                        @if (newArtworkSCMLevel2Section.CurrentApprover.Comments != null)
+                                        {
+                                            @newArtworkSCMLevel2Section.CurrentApprover.Comments
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkSCMLevel2Section.FNLSCMLevel2Attachment, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @if (newArtworkSCMLevel2Section != null && !string.IsNullOrEmpty(newArtworkSCMLevel2Section.FNLSCMLevel2Attachment))
+                                        {
+                                            foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>(newArtworkSCMLevel2Section.FNLSCMLevel2Attachment))
+                                            {
+                                                @file.FileName
+                                                <div class="clearfix"></div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (newArtworkADBLevel2Section != null)
+                {
+
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <h4 class="print-bold">ADB LEVEL 2 SECTION</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-9 col-md-9 col-sm-9 text-left txtAreaJustify">
+
+                                        @if (newArtworkADBLevel2Section.CurrentApprover.Comments != null)
+                                        {
+                                            @newArtworkADBLevel2Section.CurrentApprover.Comments
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkADBLevel2Section.FNLADBLevel2Attachment, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @if (newArtworkADBLevel2Section != null && !string.IsNullOrEmpty(newArtworkADBLevel2Section.FNLADBLevel2Attachment))
+                                        {
+                                            foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>(newArtworkADBLevel2Section.FNLADBLevel2Attachment))
+                                            {
+                                                @file.FileName
+                                                <div class="clearfix"></div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (newArtworkMarketingLevel2Section != null)
+                {
+
+                    <div id="card1" class="col-md-12 card" style="border:1px solid black">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <h4 class="print-bold">@strBU MARKETING LEVEL 2 SECTION</h4>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-3 col-md-3 col-sm-3 text-left print-bold">
+                                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-9 col-md-9 col-sm-9 text-left txtAreaJustify">
+
+                                        @if (newArtworkMarketingLevel2Section.CurrentApprover.Comments != null)
+                                        {
+                                            @newArtworkMarketingLevel2Section.CurrentApprover.Comments
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="col-xs-4 col-md-4 col-sm-4 text-left print-bold">
+                                        @Html.LabelFor(m => newArtworkMarketingLevel2Section.FNLMarketingLevel2Attachment, ResourceNames.Artwork)
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 col-sm-8 text-left">
+
+                                        @if (newArtworkMarketingLevel2Section != null && !string.IsNullOrEmpty(newArtworkMarketingLevel2Section.FNLMarketingLevel2Attachment))
+                                        {
+                                            foreach (FileDetails file in JsonConvert.DeserializeObject<List<FileDetails>>(newArtworkMarketingLevel2Section.FNLMarketingLevel2Attachment))
+                                            {
+                                                @file.FileName
+                                                <div class="clearfix"></div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </body>
+    </html>
+</div>
+</div>
+
+<div class="modal fade" id="printModel" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-print"></i> Print New Artwork</h4>
+
+            </div>
+            <div class="modal-body">
+                <p><span class="text-danger text-default-light">@Html.ResourceValue("Text_Print", ResourceNames.Common)</span></p>
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered someTable">
+
+                        <thead>
+                            <tr>
+                                <th>Attachment Name</th>
+                                <th>Print / Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    New Artwork Form
+                                </td>
+                                <td>
+
+                                    <a onclick="Print(this);" data-action="6" data-sendbackto="" data-sendtorole="" style="cursor:pointer !important">Print</a>&nbsp; | &nbsp;
+                                    <a onclick="PrintPreview(this);" data-action="6" data-sendbackto="" data-sendtorole="" style="cursor:pointer !important">Preview</a>
+                                </td>
+                            </tr>
+                            @if (newArtworkDetailSection != null && newArtworkDetailSection.Files != null)
+                            {
+                                foreach (FileDetails item in newArtworkDetailSection.Files)
+                                {
+                                    <tr>
+                                        <td>@item.FileName</td>
+                                        <td>
+                                            <a data-url="@item.FileURL" onclick="DownloadUploadedFile(this);" style="cursor:pointer !important"> Download and Print </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            @if (newArtworkABSQTeamSection != null && newArtworkABSQTeamSection.Files != null)
+                            {
+                                if (newArtworkABSQTeamSection.Files != null)
+                                {
+                                    foreach (FileDetails item in newArtworkABSQTeamSection.Files)
+                                    {
+                                        <tr>
+                                            <td>@item.FileName</td>
+                                            <td>
+                                                <a data-url="@item.FileURL" onclick="DownloadUploadedFile(this);" style="cursor:pointer !important"> Download and Print </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+
+
+                                foreach (NewArtworkAttachment mainItem in newArtworkABSQTeamSection.ArtworkAttachmentList)
+                                {
+                                    if (mainItem.Files != null)
+                                    {
+                                        foreach (var item in mainItem.Files)
+                                        {
+                                            <tr>
+                                                <td>@item.FileName</td>
+                                                <td>
+                                                    <a data-url="@item.FileURL" onclick="DownloadUploadedFile(this);" style="cursor:pointer !important"> Download and Print </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+
+                                }
+                            }
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,1414 @@
+﻿@using BEL.ArtworkWorkflow.Models.ExistingArtwork;
+@using BEL.ArtworkWorkflow.Models.Common;
+@using BEL.ArtworkWorkflow.Models.Master;
+@using BEL.CommonDataContract;
+@model ExistingArtworkAdminDetailSection
+
+<script type="text/javascript">
+    @{
+
+        ApproverMaster approverlist = Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.APPROVERMASTER)) as ApproverMaster;
+        ProductCategoryMaster prodlist = Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.PRODUCTCATEGORYMASTER)) as ProductCategoryMaster;
+        BusinessUnitMaster businessUnitList = Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.BUSINESSUNITMASTER)) as BusinessUnitMaster;
+        ArtworkTypeMaster artworkTypeList = Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.ARTWORKTYEMASTER)) as ArtworkTypeMaster;
+
+      }
+    var ProductCategoryList = JSON.parse(@(new HtmlString(Json.Encode(Newtonsoft.Json.JsonConvert.SerializeObject(prodlist.Items.OrderBy(p => p.Title).ToList())))));
+    var ArtworkTypeList = JSON.parse(@(new HtmlString(Json.Encode(Newtonsoft.Json.JsonConvert.SerializeObject(artworkTypeList.Items.OrderBy(x => x.Title).ToList())))));
+
+
+</script>
+<div id="divNewArtworkSection">
+    @using (Ajax.BeginForm("SaveArtworkAdminDetailSection", "ExistingArtwork", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        LoadingElementId = "loading",
+        OnFailure = "OnFailure",
+        OnSuccess = "OnSuccess",
+        OnBegin = "BeginClient"
+    }, new { enctype = "multipart/form-data" }))
+    {
+
+        @Html.HiddenFor(m => m.ListDetails[0].ItemId)
+        @Html.HiddenFor(m => m.ListDetails[0].ListName)
+        @Html.HiddenFor(m => m.SectionName)
+        @Html.HiddenFor(m => m.ActionStatus)
+        @Html.HiddenFor(m => m.Status)
+
+        @Html.HiddenFor(m => m.ABSAdmin)
+        @Html.HiddenFor(m => m.ABSAdminName)
+        @Html.Partial("_ApproversList", Model.ApproversList)
+        @Html.Partial("_CurrentApprover", Model.CurrentApprover ?? new ApplicationStatus())
+        @Html.AntiForgeryToken()
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artworkdetailsection">
+                @Html.ResourceValue("Section_Title_NewArtworkDetailDocumentSection", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artworkdetailsection">
+                <div class="form-horizontal">
+                    <p><span class="text-danger text-default-light">@Html.ResourceValue("Text_Mandatory", ResourceNames.Common)</span></p>
+                    @if (!string.IsNullOrEmpty(Model.OldReferenceNo))
+                    {
+
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">
+                                        @Html.LabelFor(m => m.OldReferenceNo, ResourceNames.Artwork)
+                                    </label>
+                                    <div class="col-md-8 ">
+                                        <div class="form-control noborder">
+                                            @Html.DisplayFor(m => m.OldReferenceNo, ResourceNames.Artwork)
+                                            @Html.HiddenFor(m => m.OldReferenceNo)
+                                            @Html.HiddenFor(m => m.OldRequestId)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">
+                                        @Html.LabelFor(m => m.OldArtworkCreatedDate, ResourceNames.Artwork)
+                                    </label>
+                                    <div class="col-md-8 ">
+                                        <div class="form-control noborder">
+                                            @(Model.OldArtworkCreatedDate.HasValue ? Model.OldArtworkCreatedDate.Value.ToShortDateString() : string.Empty)
+                                            @Html.HiddenFor(m => m.OldArtworkCreatedDate)
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">
+                                        @Html.LabelFor(m => m.OldArtworkRejectedDate, ResourceNames.Artwork)
+                                    </label>
+                                    <div class="col-md-8 ">
+                                        <div class="form-control noborder">
+                                            @(Model.OldArtworkRejectedDate.HasValue ? Model.OldArtworkRejectedDate.Value.ToShortDateString() : string.Empty)
+                                            @Html.HiddenFor(m => m.OldArtworkRejectedDate)
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+
+                            </div>
+                        </div>
+                    }
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.RequestDate, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @(Model.RequestDate.HasValue ? Model.RequestDate.Value.ToShortDateString() : "")
+                                        @Html.Hidden("RequestDate", Model.RequestDate.HasValue ? Model.RequestDate.Value.ToShortDateString() : "")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.ProposedBy, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @(string.IsNullOrEmpty(Model.ProposedByName) ? ViewBag.UserName : Model.ProposedByName)
+                                        @Html.Hidden("ProposedBy", string.IsNullOrEmpty(Model.ProposedBy) ? (string)ViewBag.UserID : Model.ProposedBy)
+                                        @Html.Hidden("ProposedByName", string.IsNullOrEmpty(Model.ProposedByName) ? (string)ViewBag.UserName : Model.ProposedByName)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.ReferenceNo, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <span class="text-danger" id="ReferenceNo">
+                                            <b>
+                                                @Html.DisplayFor(m => m.ReferenceNo, ResourceNames.NPD)
+                                                @Html.HiddenFor(m => m.ReferenceNo)
+                                            </b>
+                                        </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.Status, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <span class="text-danger" id="Status">
+                                            <b>
+                                                @(string.IsNullOrEmpty(Model.WorkflowStatus) ? Html.ResourceValue("Text_New", ResourceNames.Common) : Model.WorkflowStatus)
+                                            </b>
+                                        </span>
+                                        @Html.HiddenFor(m => m.Status)
+                                        @Html.HiddenFor(m => m.WorkflowStatus)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @Html.LabelFor(m => m.RequesterDomesticOrImported, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.DisplayFor(m => m.RequesterDomesticOrImported)
+                                        @Html.HiddenFor(m => m.RequesterDomesticOrImported)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @Html.LabelFor(m => m.RequesterBusinessUnit, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.DisplayFor(m => m.RequesterBusinessUnit)
+                                        @Html.HiddenFor(m => m.RequesterBusinessUnit)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.ItemCode, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    @if (string.IsNullOrEmpty(Model.Status) || Model.Status.Equals("Draft"))
+                                    {
+                                        @Html.TextBoxFor(m => m.ItemCode, new { @class = "user-tags", @data_hint = "Type and Select by Item Code/Model Name", @data_url = "/ExistingArtwork/GetAllItems", @data_limit = "1", @data_onadd = "ItemCodeAdded", @data_onremove = "ItemCodeRemoved", @data_displaycolumn = "name" })
+                                        @Html.ValidationMessageFor(m => m.ItemCode, ResourceNames.Artwork)
+
+                                    }
+                                    else
+                                    {
+                                        <div class="form-control noborder">
+                                            @Html.DisplayFor(m => m.ItemCode)
+                                            @Html.HiddenFor(m => m.ItemCode)
+                                        </div>
+
+                                        <div class="hide">
+                                            @Html.TextBoxFor(m => m.ItemCode, new { @class = "user-tags ", @data_hint = "Type and Select by Item Code/Model Name", @data_url = "/ExistingArtwork/GetAllItems", @data_limit = "1", @data_onadd = "ItemCodeAdded", @data_onremove = "ItemCodeRemoved", @data_displaycolumn = "name" })
+                                            @Html.ValidationMessageFor(m => m.ItemCode, ResourceNames.Artwork)
+                                        </div>
+                                    }
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.BusinessUnit, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <span class="BusinessUnit ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.BusinessUnit, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.BusinessUnit)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                       
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.DomesticOrImported, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <span class="DomesticOrImported ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.DomesticOrImported, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.DomesticOrImported)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.ProductCategory, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <span class="ProductCategory ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.ProductCategory, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.ProductCategory)
+                                        </span>
+                                    </div>
+                                    <div class="form-control noborder ItemCode hide">
+                                        @Html.DropDownListFor(m => m.ProductCategory, new SelectList((Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.PRODUCTCATEGORYMASTER)) as ProductCategoryMaster).Items.OrderBy(x => x.Title), "Value", "Title"), "Select", new { @class = "form-control", @data_selected = Model.ProductCategory })
+                                        @Html.ValidationMessageFor(m => m.ProductCategory, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.ModelName, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="ModelName ItemCode">
+                                        <span>
+                                            @Html.DisplayFor(m => m.ModelName, new { @class = "form-control" })
+                                        </span>
+                                        @Html.HiddenFor(m => m.ModelName)
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @Html.LabelFor(m => m.Color, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <span class="Color ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.Color, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.Color)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.Color, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.BarCode, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <span class="BarCode ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.BarCode, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.BarCode)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.BarCode, ResourceNames.Artwork)
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.MRP, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder ItemCode">
+                                        <span class="MRP ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.MRP, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.MRP)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.MRP, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.UnitCartonDimensionL, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder ItemCode">
+                                        L:
+                                        <span class="UnitCartonDimensionL ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.UnitCartonDimensionL, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.UnitCartonDimensionL)
+                                        </span>X W:
+                                        <span class="UnitCartonDimensionW ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.UnitCartonDimensionW, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.UnitCartonDimensionW)
+                                        </span>X H:
+                                        <span class="UnitCartonDimensionH ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.UnitCartonDimensionH, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.UnitCartonDimensionH)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.MasterCartondimensionL, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder ItemCode">
+                                        <span class="MasterCartondimensionL ItemCode">
+                                            L:
+                                            <span>
+                                                @Html.DisplayFor(m => m.MasterCartondimensionL, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.MasterCartondimensionL)
+                                        </span> X W:
+                                        <span class="MasterCartondimensionW ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.MasterCartondimensionW, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.MasterCartondimensionW)
+                                        </span> X H:
+                                        <span class="MasterCartondimensionH ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.MasterCartondimensionH, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.MasterCartondimensionH)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="FileNameList" class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.NoofCartoninMaster, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder ItemCode">
+                                        <span class="NoofCartoninMaster ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.NoofCartoninMaster, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.NoofCartoninMaster)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.NoofCartoninMaster, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @Html.LabelFor(m => m.Voltage, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <span class="Voltage ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.Voltage, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.Voltage)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.Voltage, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @Html.LabelFor(m => m.Power, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <span class="Power ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.Power, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.Power)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.Power, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @Html.LabelFor(m => m.NetWeight, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <span class="NetWeight ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.NetWeight, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.NetWeight)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.NetWeight, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @Html.LabelFor(m => m.GrossWeight, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <span class="GrossWeight ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.GrossWeight, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.GrossWeight)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.GrossWeight, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.Warranty, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder ItemCode">
+                                        <span class="Warranty ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.Warranty, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.Warranty)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.Warranty, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.Product, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder ItemCode">
+                                        <span class="Product ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.Product, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.Product)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.Product, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 localProduct">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.VendorCode, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder ItemCode">
+                                        <span class="VendorCode ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.VendorCode, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.VendorCode)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.VendorCode, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group localProduct">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.VendorAddress, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder ItemCode">
+                                        <span class="VendorAddress ItemCode">
+                                            <span>
+                                                @Html.DisplayFor(m => m.VendorAddress, new { @class = "form-control" })
+                                            </span>
+                                            @Html.HiddenFor(m => m.VendorAddress)
+                                        </span>
+                                        @Html.ValidationMessageFor(m => m.VendorAddress, ResourceNames.Artwork)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @Html.LabelFor(m => m.FNLSamplePhoto, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentSamplePhoto" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLSamplePhoto, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLSamplePhoto, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 ">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.ArtworkType, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder artworktypemultiselect disabled">
+                                        @Html.ListBox("ArtworkTypeList", new MultiSelectList((Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.ARTWORKTYEMASTER)) as ArtworkTypeMaster).Items.OrderBy(x => x.Title), "Value", "Title"), new { @id = "ArtworkTypeList", @Name = "ArtworkTypeList", @class = "form-control", @data_selected = Model.ArtworkType })
+                                        @Html.ValidationMessageFor(m => m.ArtworkType, ResourceNames.Artwork)
+                                        @Html.ValidationMessage("ArtworkTypeList", Html.ResourceValue("Error_ArtworkType", ResourceNames.Artwork))
+
+                                    </div>
+                                </div>
+                                @Html.HiddenFor(m => m.ArtworkType)
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                                @*<label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.ArtworkType, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder artworktypemultiselect">
+                                        @Html.ListBox("ArtworkTypeList", new MultiSelectList((Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.ARTWORKTYEMASTER)) as ArtworkTypeMaster).Items.OrderBy(x => x.Title), "Value", "Title"), new { @id = "ArtworkTypeList", @Name = "ArtworkTypeList", @class = "form-control", @data_selected = Model.ArtworkType })
+                                        @Html.ValidationMessageFor(m => m.ArtworkType, ResourceNames.Artwork)
+                                        @Html.ValidationMessage("ArtworkTypeList", Html.ResourceValue("Error_ArtworkType", ResourceNames.Artwork))
+                                        @Html.HiddenFor(m => m.ArtworkType)
+                                    </div>
+                                </div>*@
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_ChangeDescription", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.RequesterComment, new { maxlength = 1000, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Change Descriptions", data_toggle = "tooltip", title = "Max 1000 characters" })
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group disabled" id="existingAttachmentfrommodel">
+                                @if (Model.TempExistingAttachment != null && Model.TempExistingAttachment.Count != 0)
+                                {
+                                    @Html.Partial("_ExisitingAttachmentGrid", Model.TempExistingAttachment)
+                                }
+                                else
+                                {
+                                    @Html.Partial("_ExisitingAttachmentGrid", new List<ExistingArtworkAttachment>())
+                                }
+                            </div>
+
+                        </div>
+
+                    </div>
+                    @Html.Partial("_Approvers", Model.ApproversList)
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artworkbuheadsection">
+                @Html.ResourceValue("Section_Title_NewArtworkBUHeadSection", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artworkbuheadsection">
+                <div class="form-horizontal">
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.BUHeadComments, new { maxlength = 255, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Comment", data_toggle = "tooltip", title = "Max 255 characters" })
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artworkqalevel1section">
+                @Html.ResourceValue("Section_Title_QALevel1Section", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artworkqalevel1section">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.QALevel1Comments, new { maxlength = 255, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Comment", data_toggle = "tooltip", title = "Max 255 characters" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_ReworkRequired", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.RadioButtonFor(m => m.QALevel1ReworkRequired, "True", new { @Id = "QALevel1ReworkRequired1" })
+                                        <label for="QALevel1ReworkRequired1">Yes</label>
+                                        @Html.RadioButtonFor(m => m.QALevel1ReworkRequired, "False", new { @Id = "QALevel1ReworkRequired2" })
+                                        <label for="QALevel1ReworkRequired2">No</label>
+                                    </div>
+                                    @Html.ValidationMessageFor(m => m.QALevel1ReworkRequired, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.LabelFor(m => m.FNLQALevel1Attachment, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentQALevel1" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLQALevel1Attachment, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLQALevel1Attachment, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artworkscmlevel1section">
+                @Html.ResourceValue("Section_Title_SCMLevel1Section", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artworkscmlevel1section">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.SCMLevel1Comments, new { maxlength = 255, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Comment", data_toggle = "tooltip", title = "Max 255 characters" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_ReworkRequired", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.RadioButtonFor(m => m.SCMLevel1ReworkRequired, "True", new { @Id = "SCMLevel1ReworkRequired1" })
+                                        <label for="SCMLevel1ReworkRequired1">Yes</label>
+                                        @Html.RadioButtonFor(m => m.SCMLevel1ReworkRequired, "False", new { @Id = "SCMLevel1ReworkRequired2" })
+                                        <label for="SCMLevel1ReworkRequired2">No</label>
+                                    </div>
+                                    @Html.ValidationMessageFor(m => m.SCMLevel1ReworkRequired, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.LabelFor(m => m.FNLSCMLevel1Attachment, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentSCMLevel1" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLSCMLevel1Attachment, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLSCMLevel1Attachment, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artworkadblevel1section">
+                @Html.ResourceValue("Section_Title_ADBLevel1Section", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artworkadblevel1section">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.ADBLevel1Comments, new { maxlength = 255, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Comment", data_toggle = "tooltip", title = "Max 255 characters" })
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_ReworkRequired", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.RadioButtonFor(m => m.ADBLevel1ReworkRequired, "True", new { @Id = "ADBLevel1ReworkRequired1" })
+                                        <label for="ADBLevel1ReworkRequired1">Yes</label>
+                                        @Html.RadioButtonFor(m => m.ADBLevel1ReworkRequired, "False", new { @Id = "ADBLevel1ReworkRequired2" })
+                                        <label for="ADBLevel1ReworkRequired2">No</label>
+                                    </div>
+                                    @Html.ValidationMessageFor(m => m.ADBLevel1ReworkRequired, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.LabelFor(m => m.FNLADBLevel1Attachment, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentADBLevel1" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLADBLevel1Attachment, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLADBLevel1Attachment, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artworkmarketinglevel1section">
+                @Html.ResourceValue("Section_Title_MarketingLevel1Section", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artworkmarketinglevel1section">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.MarketingLevel1Comments, new { maxlength = 255, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Comment", data_toggle = "tooltip", title = "Max 255 characters" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_ReworkRequired", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.RadioButtonFor(m => m.MarketingLevel1ReworkRequired, "True", new { @Id = "MarketingLevel1ReworkRequired" })
+                                        <label for="MarketingLevel1ReworkRequired1">Yes</label>
+                                        @Html.RadioButtonFor(m => m.MarketingLevel1ReworkRequired, "False", new { @Id = "MarketingLevel1ReworkRequired" })
+                                        <label for="MarketingLevel1ReworkRequired2">No</label>
+                                    </div>
+                                    @Html.ValidationMessageFor(m => m.MarketingLevel1ReworkRequired, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @Html.LabelFor(m => m.FNLMarketingLevel1Attachment, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentMarketingLevel1" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLMarketingLevel1Attachment, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLMarketingLevel1Attachment, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artworkqalevel2section">
+                @Html.ResourceValue("Section_Title_QALevel2Section", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artworkqalevel2section">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.QALevel2Comments, new { maxlength = 255, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Comment", data_toggle = "tooltip", title = "Max 255 characters" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.LabelFor(m => m.FNLQALevel2Attachment, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentQALevel2" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLQALevel2Attachment, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLQALevel2Attachment, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artworkscmlevel2section">
+                @Html.ResourceValue("Section_Title_SCMLevel2Section", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artworkscmlevel2section">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.SCMLevel2Comments, new { maxlength = 255, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Comment", data_toggle = "tooltip", title = "Max 255 characters" })
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.LabelFor(m => m.FNLSCMLevel2Attachment, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentSCMLevel2" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLSCMLevel2Attachment, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLSCMLevel2Attachment, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artworkadblevel2section">
+                @Html.ResourceValue("Section_Title_ADBLevel2Section", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artworkadblevel2section">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.ADBLevel2Comments, new { maxlength = 255, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Comment", data_toggle = "tooltip", title = "Max 255 characters" })
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.LabelFor(m => m.FNLADBLevel2Attachment, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentADBLevel2" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLADBLevel2Attachment, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLADBLevel2Attachment, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artmarketinglevel2section">
+                @Html.ResourceValue("Section_Title_MarketingLevel2Section", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artmarketinglevel2section">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.MarketingLevel2Comments, new { maxlength = 255, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Comment", data_toggle = "tooltip", title = "Max 255 characters" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @Html.LabelFor(m => m.FNLMarketingLevel2Attachment, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentMarketingLevel2" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLMarketingLevel2Attachment, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLMarketingLevel2Attachment, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artworkabsqsection">
+                @Html.ResourceValue("Section_Title_ABSQTeamSection", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artworkabsqsection">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.ABSQTeamComments, new { maxlength = 255, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Comment", data_toggle = "tooltip", title = "Max 255 characters" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    <span class="text-danger text-default-light">*</span>
+                                    @Html.LabelFor(m => m.ModelName, ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        <div class="form-control noborder">
+                                            @Html.DisplayFor(m => m.ModelName, new { @class = "form-control" })
+                                            @Html.HiddenFor(m => m.ModelName)
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.LabelFor(m => m.FNLTechnicalSpecificationAttachment, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentTechnicalSpecification" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLTechnicalSpecificationAttachment, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLTechnicalSpecificationAttachment, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.LabelFor(m => m.FNLQAPAttachment, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentQAP" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLQAPAttachment, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLQAPAttachment, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @Html.Partial("_AttachmentGrid", Model.ArtworkAttachmentTempList)
+                        </div>
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-head" data-toggle="collapse" data-target="#artworkabsqapproversection">
+                @Html.ResourceValue("Section_Title_ABSQApproverSection", ResourceNames.Artwork)
+                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+            </div>
+            <div class="card-body" id="artworkabsqapproversection">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @*<span class="text-danger text-default-light">*</span>*@
+                                    @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                                </label>
+                                <div class="col-md-8 ">
+                                    <div class="form-control noborder">
+                                        @Html.TextAreaFor(m => m.ABSQApproverComments, new { maxlength = 255, @class = "form-control", @data_val = "true", @data_val_required = "Please Enter Comment", data_toggle = "tooltip", title = "Max 255 characters" })
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 attachment">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    @Html.LabelFor(m => m.FNLABSQApprover, ResourceNames.Artwork)
+
+                                </label>
+                                <div class="col-md-8 ">
+                                    <span class="text-danger text-default-light small-font">
+                                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                                    </span>
+                                    <div id="AttachmentABSQApprover" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FNLABSQApprover, new { @class = "notvisible" })
+                                    @Html.ValidationMessageFor(m => m.FNLABSQApprover, ResourceNames.Artwork)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    }
+</div>

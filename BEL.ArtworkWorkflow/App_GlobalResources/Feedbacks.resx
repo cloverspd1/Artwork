@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Error_ActionPlans" xml:space="preserve">
+    <value>Action Plans is required(Max 1000 char.)</value>
+  </data>
+  <data name="Error_Branch" xml:space="preserve">
+    <value>Branch is required.</value>
+  </data>
+  <data name="Error_BusinessUnits" xml:space="preserve">
+    <value>Business Unit is required.</value>
+  </data>
+  <data name="Error_CCFileNameList" xml:space="preserve">
+    <value>Attachment is required.</value>
+  </data>
+  <data name="Error_DefectDescription" xml:space="preserve">
+    <value>Defect Description is required (Max 1000  char.)</value>
+  </data>
+  <data name="Error_FeedbackTitle" xml:space="preserve">
+    <value>Feedback Title is required (Max 255 Char.)</value>
+  </data>
+  <data name="Error_FileNameList" xml:space="preserve">
+    <value>Attachment is required.</value>
+  </data>
+  <data name="Error_ForwardtoQuality" xml:space="preserve">
+    <value>Forward to Quality is required.</value>
+  </data>
+  <data name="Error_ModelName" xml:space="preserve">
+    <value>Model Name is required (Max 255 char.)</value>
+  </data>
+  <data name="Error_Observations" xml:space="preserve">
+    <value>Observations is required(Max 1000 char.)</value>
+  </data>
+  <data name="Error_ProblemCause" xml:space="preserve">
+    <value>Problem Cause/ issue related to required.</value>
+  </data>
+  <data name="Error_ProductSerial" xml:space="preserve">
+    <value>Product Serial is required (Max 1000  char.)</value>
+  </data>
+  <data name="Error_ProductType" xml:space="preserve">
+    <value>Product Type is required(Max 100 char.)</value>
+  </data>
+  <data name="Error_QAUser" xml:space="preserve">
+    <value>Quality User is required.</value>
+  </data>
+  <data name="Error_SupplierCode" xml:space="preserve">
+    <value>Supplier Code is required (4 digit only).</value>
+  </data>
+  <data name="Error_VendorAddress" xml:space="preserve">
+    <value>Vendor Address is required.</value>
+  </data>
+  <data name="Error_VendorCode" xml:space="preserve">
+    <value>Vendor is required.</value>
+  </data>
+  <data name="Error_Warranty" xml:space="preserve">
+    <value>Warranty is required.</value>
+  </data>
+  <data name="Label_ActionPlans" xml:space="preserve">
+    <value>Action Plans:</value>
+  </data>
+  <data name="Label_Branch" xml:space="preserve">
+    <value>Branch:</value>
+  </data>
+  <data name="Label_BusinessUnits" xml:space="preserve">
+    <value>Business Unit:</value>
+  </data>
+  <data name="Label_CCActingUser" xml:space="preserve">
+    <value>CC Acting User</value>
+  </data>
+  <data name="Label_CCFileNameList" xml:space="preserve">
+    <value>Attachment</value>
+  </data>
+  <data name="Label_Comment" xml:space="preserve">
+    <value>Comments/Remarks:</value>
+  </data>
+  <data name="Label_DefectDescription" xml:space="preserve">
+    <value>Defect Description:</value>
+  </data>
+  <data name="Label_FeedbackNo" xml:space="preserve">
+    <value>Feedback No:</value>
+  </data>
+  <data name="Label_FeedbackTitle" xml:space="preserve">
+    <value>Feedback Title:</value>
+  </data>
+  <data name="Label_FileNameList" xml:space="preserve">
+    <value>Attachments:</value>
+  </data>
+  <data name="Label_ForwardtoQuality" xml:space="preserve">
+    <value>Forward to Quality:</value>
+  </data>
+  <data name="Label_ForwardtoQuality1" xml:space="preserve">
+    <value>Forward to Quality</value>
+  </data>
+  <data name="Label_ForwardtoQuality2" xml:space="preserve">
+    <value>Close the issue</value>
+  </data>
+  <data name="Label_ModelName" xml:space="preserve">
+    <value>Model Name:</value>
+  </data>
+  <data name="Label_Observations" xml:space="preserve">
+    <value>Observations:</value>
+  </data>
+  <data name="Label_ProblemCause" xml:space="preserve">
+    <value>Problem Cause/ issue related to:</value>
+  </data>
+  <data name="Label_ProductSerial" xml:space="preserve">
+    <value>Product Serial:</value>
+  </data>
+  <data name="Label_ProductType" xml:space="preserve">
+    <value>Product Type:</value>
+  </data>
+  <data name="Label_ProposedBy" xml:space="preserve">
+    <value>Proposed By:</value>
+  </data>
+  <data name="Label_QAUser" xml:space="preserve">
+    <value>Quality User:</value>
+  </data>
+  <data name="Label_RequestDate" xml:space="preserve">
+    <value>Created Date:</value>
+  </data>
+  <data name="Label_Status" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="Label_SupplierCode" xml:space="preserve">
+    <value>Supplier Code:</value>
+  </data>
+  <data name="Label_WorkflowStatus" xml:space="preserve">
+    <value>Workflow Status</value>
+  </data>
+  <data name="Section_Title_CCActingUserSection" xml:space="preserve">
+    <value>CC Acting User Section</value>
+  </data>
+  <data name="Section_Title_FeedbackDetailDocumentSection" xml:space="preserve">
+    <value>Product Quality Feedback Detail Section</value>
+  </data>
+  <data name="Section_Title_QAUserSection" xml:space="preserve">
+    <value>Quality User Section</value>
+  </data>
+  <data name="Text_ApproveSuccess" xml:space="preserve">
+    <value>Feedback is submitted successfully</value>
+  </data>
+  <data name="Text_CompletedSuccess" xml:space="preserve">
+    <value>Feedback is closed successfully</value>
+  </data>
+  <data name="Text_SaveDraftSuccess" xml:space="preserve">
+    <value>Feedback save as draft successfully</value>
+  </data>
+  <data name="Text_SaveSuccess" xml:space="preserve">
+    <value>Feedback  saved successfully</value>
+  </data>
+  <data name="Text_Success" xml:space="preserve">
+    <value>Feedback is submitted successfully</value>
+  </data>
+</root>

@@ -1,0 +1,103 @@
+﻿@using BEL.ArtworkWorkflow.Models.ExistingArtwork
+@using BEL.ArtworkWorkflow.Models.Common
+@using BEL.ArtworkWorkflow.Models.Master;
+@using BEL.CommonDataContract;
+@model ExistingArtworkADBLevel1Section
+
+<script type="text/javascript">
+    @{
+
+        //ApproverMaster approverlist = Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(Masters.APPROVERMASTER)) as ApproverMaster;
+
+      }
+
+
+
+</script>
+<div id="divADBLevel1Section">
+    @using (Ajax.BeginForm("SaveADBLevel1Section", "ExistingArtwork", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        LoadingElementId = "loading",
+        OnFailure = "OnFailure",
+        OnSuccess = "OnSuccess",
+        OnBegin = "BeginClient"
+    }, new { enctype = "multipart/form-data" }))
+    {
+
+        @Html.HiddenFor(m => m.ListDetails[0].ItemId)
+        @Html.HiddenFor(m => m.ListDetails[0].ListName)
+        @Html.HiddenFor(m => m.SectionName)
+        @Html.HiddenFor(m => m.ActionStatus)
+        @Html.HiddenFor(m => m.Status)
+
+        @Html.Partial("_ApproversList", Model.ApproversList)
+        
+        @Html.AntiForgeryToken()
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.ResourceValue("Label_Comments", ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextAreaFor(m => m.CurrentApprover.Comments, new { maxlength = 255, @class = "form-control requiredOnSendBack", @data_val = "true", @data_val_required = "Comments/Remarks is required (max allow 255 char.)", data_toggle = "tooltip", title = "Max 255 characters" })
+                            @Html.HiddenFor(x => x.CurrentApprover.Approver)
+                            @Html.HiddenFor(x => x.CurrentApprover.Role)
+                            @Html.HiddenFor(x => x.CurrentApprover.AssignDate)
+                            @Html.ValidationMessageFor(m => m.CurrentApprover.Comments, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.ResourceValue("Label_ReworkRequired", ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.RadioButtonFor(m => m.ADBLevel1ReworkRequired, "True", new { @Id = "ADBLevel1ReworkRequired1" })
+                            <label for="ADBLevel1ReworkRequired1">Yes</label>
+                            @Html.RadioButtonFor(m => m.ADBLevel1ReworkRequired, "False", new { @Id = "ADBLevel1ReworkRequired2" })
+                            <label for="ADBLevel1ReworkRequired2">No</label>
+                        </div>
+                        @Html.ValidationMessageFor(m => m.ADBLevel1ReworkRequired, ResourceNames.Artwork)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    <div class="row">
+        <div class="col-sm-6 attachment">
+            <div class="form-group">
+                <label class="col-md-4 control-label">
+                    @*<span class="text-danger text-default-light">*</span>*@
+                    @Html.LabelFor(m => m.FNLADBLevel1Attachment, ResourceNames.Artwork)
+
+                </label>
+                <div class="col-md-8 ">
+                    <span class="text-danger text-default-light small-font">
+                        (Max. up to 5MB per file and you can upload maximum 10 files.)
+                    </span>
+                    <div id="AttachmentADBLevel1" data-appname="@SiteURLs.ARTWORKSITEURL">
+                    </div>
+                    @Html.TextBoxFor(m => m.FNLADBLevel1Attachment, new { @class = "notvisible" })
+                    @Html.ValidationMessageFor(m => m.FNLADBLevel1Attachment, ResourceNames.Artwork)
+                    <p><span class="text-danger text-default-light small-font">@Html.ResourceValue("Text_ArtworkTypeNote", ResourceNames.Artwork)<a href="#existingAttachmentfrommodel" class="artworktypedocumentsdownload">click here</a></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+
+    </div>
+
+
+    }
+</div>

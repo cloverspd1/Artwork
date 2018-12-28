@@ -1,0 +1,250 @@
+2017-08-03 12:26:38,516 [6] INFO  - MVC - Begin Request http://localhost:5179/, 
+2017-08-03 12:26:38,516 [12] INFO  - MVC - Application_Start_Done, 
+2017-08-03 12:26:39,134 [6] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 12:26:48,432 [13] INFO  - MVC - Begin Ajax Request http://localhost:5179/__browserLink/requestData/73af3b13d154422f8e6e316c48d794e1?version=2, 
+2017-08-03 12:43:56,586 [6] INFO  - MVC - Application_Start_Done, 
+2017-08-03 12:43:56,616 [11] INFO  - MVC - Begin Request http://localhost:5179/, 
+2017-08-03 12:43:57,040 [6] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 12:44:07,005 [11] INFO  - MVC - Begin Ajax Request http://localhost:5179/__browserLink/requestData/e589e94137ee4854b44c6a1126d67fc1?version=2, 
+2017-08-03 12:46:09,085 [6] INFO  - MVC - Application_Start_Done, 
+2017-08-03 12:46:09,097 [8] INFO  - MVC - Begin Request http://localhost:5179/, 
+2017-08-03 12:46:09,328 [9] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 12:46:16,564 [7] INFO  - MVC - Begin Ajax Request http://localhost:5179/__browserLink/requestData/a3964b9e8a1743b58084af4d234e38ed?version=2, 
+2017-08-03 12:47:02,332 [6] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 12:47:02,332 [10] INFO  - MVC - Begin Request http://localhost:5179/, 
+2017-08-03 12:47:04,630 [8] INFO  - MVC - Begin Ajax Request http://localhost:5179/__browserLink/requestData/2b7c73a862cc4524bb44ed7bf7f21e2a?version=2, 
+2017-08-03 12:47:38,850 [7] INFO  - MVC - Begin Request http://localhost:5179/, 
+2017-08-03 12:47:38,850 [8] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 12:47:41,220 [8] INFO  - MVC - Begin Ajax Request http://localhost:5179/__browserLink/requestData/52173ea68b114dce9372d7718d1f07d7?version=2, 
+2017-08-03 12:48:10,422 [7] INFO  - MVC - Begin Request http://localhost:5179/, 
+2017-08-03 12:48:10,422 [8] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 12:48:12,692 [10] INFO  - MVC - Begin Ajax Request http://localhost:5179/__browserLink/requestData/7ba03e0196c5428fa9a237d7f5c13995?version=2, 
+2017-08-03 13:05:18,389 [31] INFO  - MVC - Begin Request http://localhost:5179/, 
+2017-08-03 13:05:18,389 [44] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 13:05:22,120 [31] INFO  - MVC - Begin Ajax Request http://localhost:5179/__browserLink/requestData/d0000f2360dc4b3f9781de4841c35e46?version=2, 
+2017-08-03 13:08:56,811 [11] INFO  - MVC - Begin Request http://localhost:5179/, 
+2017-08-03 13:08:56,811 [52] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 13:09:00,981 [52] INFO  - MVC - Begin Ajax Request http://localhost:5179/__browserLink/requestData/bb839f4873a44888924ae52af9b703c0?version=2, 
+2017-08-03 13:09:42,984 [11] INFO  - MVC - Application_Start_Done, 
+2017-08-03 13:09:42,984 [38] INFO  - MVC - Begin Request http://localhost:5179/, 
+2017-08-03 13:09:43,213 [38] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 13:09:46,608 [46] INFO  - MVC - Begin Request http://localhost:5179/ExistingArtwork/Index, 
+2017-08-03 13:09:46,622 [52] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 13:09:47,184 [38] INFO  - MVC - Begin Ajax Request http://localhost:5179/__browserLink/requestData/f8debbb30bb74b35ad968c90989bb3c4?version=2, 
+2017-08-03 13:09:51,612 [48] INFO  - MVC - Begin Ajax Request http://localhost:5179/__browserLink/requestData/f97ae3ca9d0a4855a6895cbe33010edb?version=2, 
+2017-08-03 16:29:27,518 [8] INFO  - MVC - Application_Start_Done, 
+2017-08-03 16:29:27,590 [6] INFO  - MVC - Begin Request http://localhost:51179/, 
+2017-08-03 16:29:28,109 [6] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 16:29:43,464 [8] INFO  - MVC - Begin Ajax Request http://localhost:51179/__browserLink/requestData/85afca36a8f64801a2c084060bbf531c?version=2, 
+2017-08-03 16:51:58,710 [5] INFO  - MVC - Application_Start_Done, 
+2017-08-03 16:51:58,739 [5] INFO  - MVC - Begin Request http://localhost:51179/, 
+2017-08-03 16:51:58,942 [5] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 16:52:07,679 [9] INFO  - MVC - Begin Ajax Request http://localhost:51179/__browserLink/requestData/18dd4f29d6d64a8ba1712ff09488b36b?version=2, 
+2017-08-03 17:10:15,967 [22] INFO  - MVC - Application_Start_Done, 
+2017-08-03 17:10:15,980 [20] INFO  - MVC - Begin Request http://localhost:51179/, 
+2017-08-03 17:10:16,260 [22] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 17:10:30,571 [25] ERROR - The controller for path '/__browserLink/requestData/842cb0d25a0149dcbdf3000c2deba3ec' was not found or does not implement IController.
+System.Web.HttpException (0x80004005): The controller for path '/__browserLink/requestData/842cb0d25a0149dcbdf3000c2deba3ec' was not found or does not implement IController.
+   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2017-08-03 17:10:30,587 [22] INFO  - MVC - Begin Ajax Request http://localhost:51179/__browserLink/requestData/842cb0d25a0149dcbdf3000c2deba3ec?version=2, 
+2017-08-03 17:10:30,587 [20] INFO  - MVC - Application_Start_Done, 
+2017-08-03 18:37:35,512 [56] INFO  - MVC - Application_Start_Done, 
+2017-08-03 18:37:35,519 [54] ERROR - The controller for path '/__browserLink/requestData/842cb0d25a0149dcbdf3000c2deba3ec' was not found or does not implement IController.
+System.Web.HttpException (0x80004005): The controller for path '/__browserLink/requestData/842cb0d25a0149dcbdf3000c2deba3ec' was not found or does not implement IController.
+   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2017-08-03 18:37:35,526 [55] INFO  - MVC - Begin Ajax Request http://localhost:51179/__browserLink/requestData/842cb0d25a0149dcbdf3000c2deba3ec?version=2, 
+2017-08-03 18:39:40,080 [7] INFO  - MVC - Application_Start_Done, 
+2017-08-03 18:39:40,117 [9] INFO  - MVC - Begin Request http://localhost:51179/, 
+2017-08-03 18:39:40,466 [7] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 18:39:57,645 [5] ERROR - The model item passed into the dictionary is of type 'BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkDetailSection', but this dictionary requires a model item of type 'BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkADBLevel1Section'.
+System.InvalidOperationException: The model item passed into the dictionary is of type 'BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkDetailSection', but this dictionary requires a model item of type 'BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkADBLevel1Section'.
+   at System.Web.Mvc.ViewDataDictionary`1.SetModel(Object value)
+   at System.Web.Mvc.ViewDataDictionary.set_Model(Object value)
+   at System.Web.Mvc.ViewDataDictionary..ctor(ViewDataDictionary dictionary)
+   at System.Web.Mvc.ViewDataDictionary`1..ctor(ViewDataDictionary viewDataDictionary)
+   at System.Web.Mvc.WebViewPage`1.SetViewData(ViewDataDictionary viewData)
+   at System.Web.Mvc.WebViewPage.set_ViewData(ViewDataDictionary value)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model)
+   at ASP._Page_Views_NewArtwork_Index_cshtml.Execute() in e:\Projects\BEL Artwork\06.Source Code\02.Development\BEL.Artwork\BEL.ArtworkWorkflow\Views\NewArtwork\Index.cshtml:line 142
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2017-08-03 18:40:06,309 [5] INFO  - MVC - Application_Start_Done, 
+2017-08-03 18:40:06,319 [8] INFO  - MVC - Begin Request http://localhost:51179/NewArtwork/Index, 
+2017-08-03 18:40:06,695 [5] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 18:40:09,715 [7] ERROR - The model item passed into the dictionary is of type 'BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkDetailSection', but this dictionary requires a model item of type 'BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkADBLevel1Section'.
+System.InvalidOperationException: The model item passed into the dictionary is of type 'BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkDetailSection', but this dictionary requires a model item of type 'BEL.ArtworkWorkflow.Models.NewArtwork.NewArtworkADBLevel1Section'.
+   at System.Web.Mvc.ViewDataDictionary`1.SetModel(Object value)
+   at System.Web.Mvc.ViewDataDictionary.set_Model(Object value)
+   at System.Web.Mvc.ViewDataDictionary..ctor(ViewDataDictionary dictionary)
+   at System.Web.Mvc.ViewDataDictionary`1..ctor(ViewDataDictionary viewDataDictionary)
+   at System.Web.Mvc.WebViewPage`1.SetViewData(ViewDataDictionary viewData)
+   at System.Web.Mvc.WebViewPage.set_ViewData(ViewDataDictionary value)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model)
+   at ASP._Page_Views_NewArtwork_Index_cshtml.Execute() in e:\Projects\BEL Artwork\06.Source Code\02.Development\BEL.Artwork\BEL.ArtworkWorkflow\Views\NewArtwork\Index.cshtml:line 142
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2017-08-03 18:41:14,884 [8] INFO  - MVC - Application_Start_Done, 
+2017-08-03 18:41:14,912 [9] INFO  - MVC - Begin Request http://localhost:51179/NewArtwork/Index, 
+2017-08-03 18:41:15,221 [8] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 18:41:27,790 [6] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 18:41:27,790 [9] INFO  - MVC - Begin Request http://localhost:51179/NewArtwork/Index, 
+2017-08-03 18:41:29,401 [8] INFO  - MVC - Begin Ajax Request http://localhost:51179/__browserLink/requestData/40eea27c49d04a3580fa1dcb5a6aca17?version=2, 
+2017-08-03 18:41:29,875 [10] INFO  - MVC - Begin Ajax Request http://localhost:51179/__browserLink/requestData/f7e070522da54d8da0ed8ef9d1099dd2?version=2, 
+2017-08-03 18:41:51,866 [8] INFO  - MVC - Begin Request http://localhost:51179/ExistingArtwork/Index, 
+2017-08-03 18:41:51,882 [9] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 18:41:54,899 [6] ERROR - e:\Projects\BEL Artwork\06.Source Code\02.Development\BEL.Artwork\BEL.ArtworkWorkflow\Views\ExistingArtwork\Index.cshtml(40): error CS0117: 'System.Web.Mvc.Html.ResourceNames' does not contain a definition for 'NewArtwork'
+System.Web.HttpCompileException (0x80004005): e:\Projects\BEL Artwork\06.Source Code\02.Development\BEL.Artwork\BEL.ArtworkWorkflow\Views\ExistingArtwork\Index.cshtml(40): error CS0117: 'System.Web.Mvc.Html.ResourceNames' does not contain a definition for 'NewArtwork'
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2017-08-03 18:43:31,459 [8] INFO  - MVC - Application_Start_Done, 
+2017-08-03 18:43:31,474 [9] INFO  - MVC - Begin Request http://localhost:51179/ExistingArtwork/Index, 
+2017-08-03 18:43:31,716 [8] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 18:43:39,458 [8] INFO  - MVC - Start Feedback form and ID = 0, 
+2017-08-03 18:43:39,459 [10] INFO  - MVC - Begin Request http://localhost:51179/ExistingArtwork/Index, 
+2017-08-03 18:43:40,853 [9] INFO  - MVC - Begin Ajax Request http://localhost:51179/__browserLink/requestData/96c06b6b97ae4b399618021932774c4b?version=2, 
+2017-08-03 18:43:40,927 [10] INFO  - MVC - Begin Ajax Request http://localhost:51179/__browserLink/requestData/d0228c49e348459ea9fd224792b20c94?version=2, 

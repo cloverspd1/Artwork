@@ -1,0 +1,121 @@
+﻿@using BEL.ArtworkWorkflow.Models.ExistingArtwork
+@using BEL.ArtworkWorkflow.Models.Common
+@using BEL.ArtworkWorkflow.Models.Master;
+@using BEL.CommonDataContract;
+@model List<ExistingArtworkAttachment>
+@{
+    string strArtworkType = string.Empty;
+    bool isfileavailable = false;
+}
+
+<div class="table-responsive" id="existingAttachment">
+</div>
+<div>
+    <table class="table table-hover table-bordered someTable">
+        <thead>
+            <tr>
+                @*<th>Sr No</th>*@
+                <th>@Html.ResourceValue("Grid_Title_ArtworkType", ResourceNames.Artwork)</th>
+                <th>@Html.ResourceValue("Grid_Title_Applicable", ResourceNames.Artwork)</th>
+                <th>@Html.ResourceValue("Grid_Title_FileName", ResourceNames.Artwork)</th>
+                @*<th>@Html.ResourceValue("Grid_Title_Action", ResourceNames.Common)</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count() > 0)
+            {
+
+                @*for (int idx = 0; idx < Model.Count; idx++)
+                    {
+                        if (Model[idx].Files != null && Model[idx].Files.Count != 0)
+                        {
+                            isfileavailable = true;
+                        }
+                        if (Model[idx].ItemAction != null || Model[idx].ItemAction != ItemActionStatus.DELETED)
+                        {
+                            strArtworkType = strArtworkType + "," + Model[idx].ArtworkTypeCode;
+                            @Html.Hidden("TempExistingAttachment[" + idx + "].Index", Model[idx].Index)
+                            @Html.Hidden("TempExistingAttachment[" + idx + "].ArtworkType", Model[idx].ArtworkType)
+                            @Html.Hidden("TempExistingAttachment[" + idx + "].ArtworkTypeCode", Model[idx].ArtworkTypeCode)
+                            @Html.Hidden("TempExistingAttachment[" + idx + "].ID", Model[idx].ID)
+                            @Html.Hidden("TempExistingAttachment[" + idx + "].RequestID", Model[idx].RequestID)
+                            @Html.Hidden("TempExistingAttachment[" + idx + "].RequestBy", Model[idx].RequestBy)
+                            @Html.Hidden("TempExistingAttachment[" + idx + "].RequestDate", Model[idx].RequestDate)
+                            @Html.Hidden("TempExistingAttachment[" + idx + "].FileName", Model[idx].FileName)
+                            @Html.Hidden("TempExistingAttachment[" + idx + "].ItemAction", Model[idx].ItemAction)
+                            @Html.Hidden("TempExistingAttachment[" + idx + "].Status", Model[idx].Status)
+
+                            string divAttachmentId = "TempExistingAttachment" + idx;
+                            <tr>
+
+                                <td>@(Model[idx].ArtworkType)</td>
+                                <td> @Html.CheckBoxFor(m => m[idx].IsNotApplicable,  new { @id = "TempExistingAttachment[" + idx + "].IsNotApplicable" })</td>
+                                <td class="existingArtworkAttachments">
+                                    <div id="@divAttachmentId" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                    </div>
+                                    @Html.TextBoxFor(m => m[idx].FileNameList, new { @class = "notvisible", @id = "TempExistingAttachment[" + idx + "].FileNameList", @Name = "TempExistingAttachment[" + idx + "].FileNameList", @data_val = "true", @data_val_required = "Artwork Attachtment is required." })
+                                    @Html.ValidationMessageFor(m => m[idx].FileNameList, "Artwork Attachtment is required.", new { @data_valmsg_for = "TempExistingAttachment[" + idx + "].FileNameList" })
+                                </td>
+                            </tr>
+                        }
+                    }*@
+
+                var idx = 0;
+
+                foreach (ExistingArtworkAttachment item in Model)
+                {
+                    if (item.Files != null && item.Files.Count != 0)
+                    {
+                        isfileavailable = true;
+                    }
+                    if (item.ItemAction != null || item.ItemAction != ItemActionStatus.DELETED)
+                    {
+                        strArtworkType = strArtworkType + "," + item.ArtworkTypeCode;
+                        @Html.Hidden("TempExistingAttachment[" + idx + "].Index", item.Index)
+                        @Html.Hidden("TempExistingAttachment[" + idx + "].ArtworkType", item.ArtworkType)
+                        @Html.Hidden("TempExistingAttachment[" + idx + "].ArtworkTypeCode", item.ArtworkTypeCode)
+                        @Html.Hidden("TempExistingAttachment[" + idx + "].ID", item.ID)
+                        @Html.Hidden("TempExistingAttachment[" + idx + "].RequestID", item.RequestID)
+                        @Html.Hidden("TempExistingAttachment[" + idx + "].RequestBy", item.RequestBy)
+                        @Html.Hidden("TempExistingAttachment[" + idx + "].RequestDate", item.RequestDate)
+                        @Html.Hidden("TempExistingAttachment[" + idx + "].FileName", item.FileName)
+                        @Html.Hidden("TempExistingAttachment[" + idx + "].ItemAction", item.ItemAction)
+                        @Html.Hidden("TempExistingAttachment[" + idx + "].Status", item.Status)
+                        @*@Html.Hidden("TempExistingAttachment[" + idx + "].IsNotApplicable", item.IsNotApplicable)*@
+                        string divAttachmentId = "TempExistingAttachment" + idx;
+                        <tr>
+                            @*<td>@(idx + 1)</td>*@
+                            <td>@(item.ArtworkType)</td>
+                            <td>
+                                @*@Html.CheckBoxFor(m => item.IsNotApplicable, new { @id = "TempExistingAttachment[" + idx + "].IsNotApplicable", @Value = item.IsNotApplicable })*@
+
+                                <input id="TempExistingAttachment[@idx].IsNotApplicable" class="IsNotApplicable" name="TempExistingAttachment[@idx].IsNotApplicable" type="checkbox" @(item.IsNotApplicable ? "checked" : "") value="true">
+                                @*@Html.HiddenFor(m => m.IsNotApplicable, item.IsNotApplicable)*@
+                            </td>
+                            <td class="existingArtworkAttachments">
+                                <div id="@divAttachmentId" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                </div>
+                                @Html.TextBoxFor(m => item.FileNameList, new { @class = "notvisible", @id = "TempExistingAttachment[" + idx + "].FileNameList", @Name = "TempExistingAttachment[" + idx + "].FileNameList", @data_val = "true", @data_val_required = "Artwork Attachtment is required." })
+                                @Html.ValidationMessageFor(m => item.FileNameList, "Artwork Attachtment is required.", new { @data_valmsg_for = "TempExistingAttachment[" + idx + "].FileNameList" })
+                            </td>
+                        </tr>
+                    }
+                    idx = idx + 1;
+                }
+
+                strArtworkType = strArtworkType.Trim(',');
+            }
+            else
+            {
+                <tr>
+                    <td colspan="9" class="text-center text-danger">
+                        @Html.ResourceValue("Grid_Text_NoData", ResourceNames.Common)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @Html.Hidden("strArtworkType", strArtworkType)
+    @Html.Hidden("isfileavailable", isfileavailable)
+</div>

@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Button_Text_Attach" xml:space="preserve">
+    <value>Attach</value>
+  </data>
+  <data name="Button_Text_CompetitorInformation" xml:space="preserve">
+    <value>Add Competitor Information of the Category</value>
+  </data>
+  <data name="Button_Text_CumulativeSales" xml:space="preserve">
+    <value>Add Cumulative Sales PRojection</value>
+  </data>
+  <data name="Button_Text_ProductFeature" xml:space="preserve">
+    <value>Add Product Feature</value>
+  </data>
+  <data name="Button_Text_TargetRLP" xml:space="preserve">
+    <value>Add Target RLP</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="Label_MarketShare" xml:space="preserve">
+    <value>Market Share (%)</value>
+  </data>
+  <data name="Label_RLP" xml:space="preserve">
+    <value>RLP (Rs. in lacs)</value>
+  </data>
+  <data name="Label_SalesValue" xml:space="preserve">
+    <value>Sales Value (Rs. in lacs)</value>
+  </data>
+  <data name="Label_SalesVolume" xml:space="preserve">
+    <value>Sales Volume</value>
+  </data>
+  <data name="Label_BusinessSaliency" xml:space="preserve">
+    <value>Business Saliency (%)</value>
+  </data>
+  <data name="Label_DesiredThroughput" xml:space="preserve">
+    <value>Desired Throughtput (%)</value>
+  </data>
+  <data name="Label_Periods" xml:space="preserve">
+    <value>Periods</value>
+  </data>
+  <data name="Label_Value" xml:space="preserve">
+    <value>Value (Rs. in lacs)</value>
+  </data>
+  <data name="Error_AgeGroup" xml:space="preserve">
+    <value>Age Group  is required.</value>
+  </data>
+  <data name="Error_BajajBrand" xml:space="preserve">
+    <value>Bajaj Brand  is required.</value>
+  </data>
+  <data name="Error_BusinessSaliency" xml:space="preserve">
+    <value>Business Saliency is required and make sure it should be between 0 to 100.</value>
+  </data>
+  <data name="Error_BusinessUnit" xml:space="preserve">
+    <value>Business Unit is required.</value>
+  </data>
+  <data name="Error_Channels" xml:space="preserve">
+    <value>Channels  is required.</value>
+  </data>
+  <data name="Error_CurrentYear" xml:space="preserve">
+    <value>Current Year  is required.</value>
+  </data>
+  <data name="Error_DesiredThroughput" xml:space="preserve">
+    <value>Desired Throughput is required and make sure it should be between 0 to 100.</value>
+  </data>
+  <data name="Error_Gender" xml:space="preserve">
+    <value>Gender is required.</value>
+  </data>
+  <data name="Error_IncomeGroup" xml:space="preserve">
+    <value>Income Group  is required.</value>
+  </data>
+  <data name="Error_IntendedLaunchDate" xml:space="preserve">
+    <value>Intended Launch Date  is required.</value>
+  </data>
+  <data name="Error_MarketShare" xml:space="preserve">
+    <value>Market Share  is required and make sure it should be between 0 to 100.</value>
+  </data>
+  <data name="Error_NextYear" xml:space="preserve">
+    <value>Next Year  is required.</value>
+  </data>
+  <data name="Error_OtherChannels" xml:space="preserve">
+    <value>Other Channels  is required.</value>
+  </data>
+  <data name="Error_PreviousYear" xml:space="preserve">
+    <value>Previous Year  is required.</value>
+  </data>
+  <data name="Error_ProductCategory" xml:space="preserve">
+    <value>Project Category  is required.</value>
+  </data>
+  <data name="Error_ProductPositioning" xml:space="preserve">
+    <value>Product Positioning  is required.</value>
+  </data>
+  <data name="Error_ProjectName" xml:space="preserve">
+    <value>Project Name  is required.</value>
+  </data>
+  <data name="Error_ProjectNo" xml:space="preserve">
+    <value>Project No  is required.</value>
+  </data>
+  <data name="Error_ProjectTrigger" xml:space="preserve">
+    <value>Project Trigger  is required.</value>
+  </data>
+  <data name="Error_ProjectType" xml:space="preserve">
+    <value>Project Type  is required.</value>
+  </data>
+  <data name="Error_ReferenceBrand" xml:space="preserve">
+    <value>Reference Brand  is required.</value>
+  </data>
+  <data name="Error_ReferenceBrandAndModel" xml:space="preserve">
+    <value>Reference Brand and Model is required.</value>
+  </data>
+  <data name="Error_Regions" xml:space="preserve">
+    <value>Regions  is required.</value>
+  </data>
+  <data name="Error_RequestorComments" xml:space="preserve">
+    <value>Requestor Comments  is required.</value>
+  </data>
+  <data name="Error_RLP" xml:space="preserve">
+    <value>RLP  is required.</value>
+  </data>
+  <data name="Error_SalesValue" xml:space="preserve">
+    <value>Sales Value  is required.</value>
+  </data>
+  <data name="Error_SalesVolume" xml:space="preserve">
+    <value>Sales Volume  is required.</value>
+  </data>
+  <data name="Error_Value" xml:space="preserve">
+    <value>Value is required</value>
+  </data>
+  <data name="Form_Title_CompetitorInformation" xml:space="preserve">
+    <value>Competitor Information of the category</value>
+  </data>
+  <data name="Form_Title_CumulativeSalesProjection" xml:space="preserve">
+    <value>Cumulative Sales Projection</value>
+  </data>
+  <data name="Form_Title_MarketInformation" xml:space="preserve">
+    <value>Market Information</value>
+  </data>
+  <data name="Form_Title_TargetCustomer" xml:space="preserve">
+    <value>Target Customers</value>
+  </data>
+  <data name="Grid_ProductFeature_Header_Label_BajajBrand" xml:space="preserve">
+    <value>Bajaj Brand</value>
+  </data>
+  <data name="Grid_ProductFeature_Header_Label_ProductFeature" xml:space="preserve">
+    <value>Product Feature (MOSCOW)</value>
+  </data>
+  <data name="Grid_ProductFeature_Header_Label_ReferenceBrand" xml:space="preserve">
+    <value>Reference Brand</value>
+  </data>
+  <data name="Label_TargetRLP" xml:space="preserve">
+    <value>Target RLP (Rs. in lacs)</value>
+  </data>
+  <data name="Label_TargetTransferPrice" xml:space="preserve">
+    <value>Target Transfer Price (Rs. in lacs)</value>
+  </data>
+  <data name="Grid_Title_ProductCategoryDetail" xml:space="preserve">
+    <value>Product Category Details</value>
+  </data>
+  <data name="Grid_Title_ProductFeature" xml:space="preserve">
+    <value>Product Feature</value>
+  </data>
+  <data name="Label_AgeGroup" xml:space="preserve">
+    <value>Age Group</value>
+  </data>
+  <data name="Label_BusinessUnit" xml:space="preserve">
+    <value>Business Unit:</value>
+  </data>
+  <data name="Label_Channels" xml:space="preserve">
+    <value>Channels:</value>
+  </data>
+  <data name="Label_Comments" xml:space="preserve">
+    <value>Comments/Remarks:</value>
+  </data>
+  <data name="Label_Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Label_IncomeGroup" xml:space="preserve">
+    <value>Income Group</value>
+  </data>
+  <data name="Label_IntendedLaunchDate" xml:space="preserve">
+    <value>Intended Launch Date:</value>
+  </data>
+  <data name="Label_NPDAttachment" xml:space="preserve">
+    <value>NPD Attachments:</value>
+  </data>
+  <data name="Label_OtherChannels" xml:space="preserve">
+    <value>Other Channels:</value>
+  </data>
+  <data name="Label_ProductCategory" xml:space="preserve">
+    <value>Project Category:</value>
+  </data>
+  <data name="Label_ProductPositioning" xml:space="preserve">
+    <value>Product Positioning:</value>
+  </data>
+  <data name="Label_ProjectName" xml:space="preserve">
+    <value>Project Name:</value>
+  </data>
+  <data name="Label_ProjectNo" xml:space="preserve">
+    <value>Project No:</value>
+  </data>
+  <data name="Label_ProjectTrigger" xml:space="preserve">
+    <value>Trigger of the Project:</value>
+  </data>
+  <data name="Label_ProjectType" xml:space="preserve">
+    <value>Project Type:</value>
+  </data>
+  <data name="Label_ReferenceBrandAndModel" xml:space="preserve">
+    <value>Reference Brand and Model:</value>
+  </data>
+  <data name="Label_Regions" xml:space="preserve">
+    <value>Regions:</value>
+  </data>
+  <data name="Label_RequestDate" xml:space="preserve">
+    <value>Created Date:</value>
+  </data>
+  <data name="Label_RequestorComments" xml:space="preserve">
+    <value>Comments/Remarks:</value>
+  </data>
+  <data name="Label_SampleRequired" xml:space="preserve">
+    <value>Sample Required:</value>
+  </data>
+  <data name="MarketInformation_CurrYear" xml:space="preserve">
+    <value>Current Year</value>
+  </data>
+  <data name="MarketInformation_Marketinfocategory" xml:space="preserve">
+    <value>Market info category</value>
+  </data>
+  <data name="MarketInformation_NextYear" xml:space="preserve">
+    <value>Next Year (est.)</value>
+  </data>
+  <data name="MarketInformation_PrevYear" xml:space="preserve">
+    <value>Previous Year</value>
+  </data>
+  <data name="ProductCategoryDetail_Header_CatgoryDetail" xml:space="preserve">
+    <value>Category Details</value>
+  </data>
+  <data name="ProductCategoryDetail_Header_Value" xml:space="preserve">
+    <value>Values</value>
+  </data>
+  <data name="Section_Title_NPDApprover1Section" xml:space="preserve">
+    <value>NPD Approver 1 Section</value>
+  </data>
+  <data name="Section_Title_NPDApprover2Section" xml:space="preserve">
+    <value>NPD Approver 2 Section</value>
+  </data>
+  <data name="Section_Title_NPDApprover3Section" xml:space="preserve">
+    <value>NPD Approver 3 Section</value>
+  </data>
+  <data name="Section_Title_NPDDetailDocumentSection" xml:space="preserve">
+    <value>NPD Detail Section</value>
+  </data>
+  <data name="Text_CompleteSuccess" xml:space="preserve">
+    <value>NPD completed successfully</value>
+  </data>
+  <data name="Text_IsNPDGenerated" xml:space="preserve">
+    <value>This NPD Project No is already in used, Kindly Select another NPD Project No.</value>
+  </data>
+  <data name="Text_SaveSuccess" xml:space="preserve">
+    <value>NPD saved successfully</value>
+  </data>
+  <data name="Text_Success" xml:space="preserve">
+    <value>NPD is submitted successfully</value>
+  </data>
+  <data name="Grid_Text_NoProductFeatureData" xml:space="preserve">
+    <value>No data in  Product Feature</value>
+  </data>
+  <data name="Label_BajajBrand" xml:space="preserve">
+    <value>Bajaj Brand</value>
+  </data>
+  <data name="Label_ProductFeature" xml:space="preserve">
+    <value>Product Feature(MOSCOW)</value>
+  </data>
+  <data name="Label_ReferenceBrand" xml:space="preserve">
+    <value>Reference Brand</value>
+  </data>
+  <data name="Popup_Title_AddProductFeature" xml:space="preserve">
+    <value>Add Product Feature</value>
+  </data>
+  <data name="Popup_Title_EditProductFeature" xml:space="preserve">
+    <value>Edit Product Feature</value>
+  </data>
+  <data name="Text_NPDProductFeatureSave" xml:space="preserve">
+    <value>Product Feature added successfully.</value>
+  </data>
+  <data name="Text_ProductFeatureDeleted" xml:space="preserve">
+    <value>Product Feature has been Deleted.</value>
+  </data>
+  <data name="Grid_Text_NoProductCompetitor" xml:space="preserve">
+    <value>No data in Competitor Information of the Category</value>
+  </data>
+  <data name="MarketInformation_GrowthRate" xml:space="preserve">
+    <value>Growth rate (%)</value>
+  </data>
+  <data name="MarketInformation_SizeOfINR" xml:space="preserve">
+    <value>Size of INR (Rs. in lacs)</value>
+  </data>
+  <data name="Label_FileNameList" xml:space="preserve">
+    <value>File Attachment</value>
+  </data>
+  <data name="Label_ProposedBy" xml:space="preserve">
+    <value>Proposed By:</value>
+  </data>
+  <data name="Label_Status" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="Section_Title_NPDABSAdminSection" xml:space="preserve">
+    <value>ABS Admin Section</value>
+  </data>
+  <data name="Popup_Title_AddProductCompetitor" xml:space="preserve">
+    <value>Add Product Competitor Information of Category</value>
+  </data>
+  <data name="Popup_Title_EditProductCompetitor" xml:space="preserve">
+    <value>Edit Product Competitor Information of Category</value>
+  </data>
+  <data name="Text_NPDProductCompetitorDeleted" xml:space="preserve">
+    <value>Product Competitor information of category deleted successfully.</value>
+  </data>
+  <data name="Text_NPDProductCompetitorSave" xml:space="preserve">
+    <value>Product Competitor information of category added successfully.</value>
+  </data>
+  <data name="Grid_Text_NoCumulativeSalesProjection" xml:space="preserve">
+    <value>No data in  Cumulative Sales Projection</value>
+  </data>
+  <data name="Popup_Title_AddCumulativeSalesProjection" xml:space="preserve">
+    <value>Add Cumulative Sales Projection</value>
+  </data>
+  <data name="Popup_Title_EditCumulativeSalesProjection" xml:space="preserve">
+    <value>Edit Cumulative Sales Projection</value>
+  </data>
+  <data name="Grid_Text_NoTargetRLPData" xml:space="preserve">
+    <value>No data in  Target RLP</value>
+  </data>
+  <data name="Popup_Title_AddTargetRLP" xml:space="preserve">
+    <value>Add Target RLP</value>
+  </data>
+  <data name="Popup_Title_EditTargetRLP" xml:space="preserve">
+    <value>Edit Target RLP</value>
+  </data>
+  <data name="Text_CumulativeSalesProjectionDeleted" xml:space="preserve">
+    <value>Cumulative Sales Projection has been Deleted.</value>
+  </data>
+  <data name="Text_CumulativeSalesProjectionSave" xml:space="preserve">
+    <value>Cumulative Sales Projection added successfully.</value>
+  </data>
+  <data name="AverageSales" xml:space="preserve">
+    <value>Average sales per SKU (Rs. in lacs)</value>
+  </data>
+  <data name="CategorySales" xml:space="preserve">
+    <value>Category sales in 12 months (Rs. in lacs)</value>
+  </data>
+  <data name="CurrentSKUs" xml:space="preserve">
+    <value>Current SKUs</value>
+  </data>
+  <data name="PhasedoutSKUs" xml:space="preserve">
+    <value>Phased out SKUs</value>
+  </data>
+  <data name="Text_NPDTargetRLPDeleted" xml:space="preserve">
+    <value>Target RLP deleted successfully.</value>
+  </data>
+  <data name="Text_NPDTargetRLPSave" xml:space="preserve">
+    <value>Target RLP added successfully.</value>
+  </data>
+  <data name="Error_mktCurrentYear1" xml:space="preserve">
+    <value>Current Year is required.</value>
+  </data>
+  <data name="Error_mktCurrentYear2" xml:space="preserve">
+    <value>Current Year is required.</value>
+  </data>
+  <data name="Error_mktNextYear1" xml:space="preserve">
+    <value>Next Year is required.</value>
+  </data>
+  <data name="Error_mktNextYear2" xml:space="preserve">
+    <value>Next Year is required.</value>
+  </data>
+  <data name="Error_mktPreviousYear1" xml:space="preserve">
+    <value>Previous Year is required.</value>
+  </data>
+  <data name="Error_mktPreviousYear2" xml:space="preserve">
+    <value>Previous Year is required.</value>
+  </data>
+  <data name="Label_ABSAdminComments" xml:space="preserve">
+    <value>ABS Admin Comments:</value>
+  </data>
+  <data name="Label_Approver1Comments" xml:space="preserve">
+    <value>Approver 1 Comments:</value>
+  </data>
+  <data name="Label_Approver2Comments" xml:space="preserve">
+    <value>Approver 2 Comments:</value>
+  </data>
+  <data name="Label_Approver3Comments" xml:space="preserve">
+    <value>Approver 3 Comments:</value>
+  </data>
+  <data name="Label_OldNPDCreatedDate" xml:space="preserve">
+    <value>Old NPD Created Date:</value>
+  </data>
+  <data name="Label_OldNPDRejectedDate" xml:space="preserve">
+    <value>NPD Rejected Date:</value>
+  </data>
+  <data name="Label_OldProjectNo" xml:space="preserve">
+    <value>Old NPD Project No:</value>
+  </data>
+  <data name="Text_RejectedSuccess" xml:space="preserve">
+    <value>NPD rejected successfully</value>
+  </data>
+  <data name="Text_ReworkSuccess" xml:space="preserve">
+    <value>NPD is sent back for rework</value>
+  </data>
+  <data name="Text_SaveDraftSuccess" xml:space="preserve">
+    <value>NPD save as draft successfully</value>
+  </data>
+  <data name="Text_ApproveSuccess" xml:space="preserve">
+    <value>NPD  is approved successfully</value>
+  </data>
+  <data name="Text_CompletedSuccess" xml:space="preserve">
+    <value>NPD is completed successfully</value>
+  </data>
+  <data name="Error_Brand" xml:space="preserve">
+    <value>Brand  is required.</value>
+  </data>
+  <data name="Error_Periods" xml:space="preserve">
+    <value>Periods  is required.</value>
+  </data>
+  <data name="Error_ProductFeature" xml:space="preserve">
+    <value>Product Feature is required.</value>
+  </data>
+  <data name="Error_TargetRLP" xml:space="preserve">
+    <value>Target RLP  is required.</value>
+  </data>
+  <data name="Error_TargetTransferPrice" xml:space="preserve">
+    <value>Target Transfer Price is required.</value>
+  </data>
+  <data name="Grid_CumulativeSalesProjection_Header_Label_BusinessSaliency" xml:space="preserve">
+    <value>Business Saliency (%)</value>
+  </data>
+  <data name="Grid_CumulativeSalesProjection_Header_Label_DesiredThroughput" xml:space="preserve">
+    <value>Desired Throughtput (%)</value>
+  </data>
+  <data name="Grid_CumulativeSalesProjection_Header_Label_Periods" xml:space="preserve">
+    <value>Periods</value>
+  </data>
+  <data name="Grid_CumulativeSalesProjection_Header_Label_TargetRLP" xml:space="preserve">
+    <value>Target RLP (Rs. in lacs)</value>
+  </data>
+  <data name="Grid_CumulativeSalesProjection_Header_Label_TargetTransferPrice" xml:space="preserve">
+    <value>Target Transfer Price (Rs. in lacs)</value>
+  </data>
+  <data name="Grid_CumulativeSalesProjection_Header_Label_Value" xml:space="preserve">
+    <value>Value (Rs. in lacs)</value>
+  </data>
+  <data name="Grid_ProductCompetitor_Header_Label_Brand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="Grid_ProductCompetitor_Header_Label_MarketShare" xml:space="preserve">
+    <value>Market Share (%)</value>
+  </data>
+  <data name="Grid_ProductCompetitor_Header_Label_RLP" xml:space="preserve">
+    <value>RLP (Rs. in lacs)</value>
+  </data>
+  <data name="Grid_ProductCompetitor_Header_Label_SalesValue" xml:space="preserve">
+    <value>Sales Value (Rs. in lacs)</value>
+  </data>
+  <data name="Grid_ProductCompetitor_Header_Label_SalesVolume" xml:space="preserve">
+    <value>Sales Volume</value>
+  </data>
+  <data name="Error_FileNameList" xml:space="preserve">
+    <value>File Attachment is required.</value>
+  </data>
+  <data name="Text_ProductFeatureRequired" xml:space="preserve">
+    <value>Required to have atleast one product feature of each type (Should have, Must have, Could have,Would have).</value>
+  </data>
+  <data name="Text_CumulativeSalesProjectionRequired" xml:space="preserve">
+    <value>Required to have atleast one cumulative sales projection of each type (6 months, 12 months, 24 months).</value>
+  </data>
+</root>

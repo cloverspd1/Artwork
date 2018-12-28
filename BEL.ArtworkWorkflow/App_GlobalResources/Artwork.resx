@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Error_ProductCategory" xml:space="preserve">
+    <value>Product Category is required.</value>
+  </data>
+  <data name="Error_ModelName" xml:space="preserve">
+    <value>Model Name is required (Max allow 255 char).</value>
+  </data>
+  <data name="Error_BusinessUnit" xml:space="preserve">
+    <value>Business Unit is required.</value>
+  </data>
+  <data name="Error_BarCode" xml:space="preserve">
+    <value>Bar Code is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Error_MRP" xml:space="preserve">
+    <value>MRP (In Rs.) is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Error_UnitCartonDimension" xml:space="preserve">
+    <value>Unit Carton Dimension is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Error_MasterCartondimension" xml:space="preserve">
+    <value>Master Carton Dimension  is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Error_NoofCartoninMaster" xml:space="preserve">
+    <value>No of Carton in Master is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Error_Warranty" xml:space="preserve">
+    <value>Warranty is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Error_ArtworkType" xml:space="preserve">
+    <value>Artwork Type is required.</value>
+  </data>
+  <data name="Error_SupplierCode" xml:space="preserve">
+    <value>Supplier Code is required (4 digit only).</value>
+  </data>
+  <data name="Label_BarCode" xml:space="preserve">
+    <value>Bar Code:</value>
+  </data>
+  <data name="Label_BusinessUnit" xml:space="preserve">
+    <value>Business Unit:</value>
+  </data>
+  <data name="Label_Color" xml:space="preserve">
+    <value>Color:</value>
+  </data>
+  <data name="Label_Comments" xml:space="preserve">
+    <value>Comments / Remarks:</value>
+  </data>
+  <data name="Label_FileNameList" xml:space="preserve">
+    <value>Attachments:</value>
+  </data>
+  <data name="Label_ItemCode" xml:space="preserve">
+    <value>Item Code:</value>
+  </data>
+  <data name="Label_MasterCartondimension" xml:space="preserve">
+    <value>Master Carton Dimension:</value>
+  </data>
+  <data name="Label_ModelName" xml:space="preserve">
+    <value>Model Name:</value>
+  </data>
+  <data name="Label_MRP" xml:space="preserve">
+    <value>MRP (In Rs.):</value>
+  </data>
+  <data name="Label_Power" xml:space="preserve">
+    <value>Power (In Watt):</value>
+  </data>
+  <data name="Label_NetWeight" xml:space="preserve">
+    <value>Net Weight (In Kgs):</value>
+  </data>
+  <data name="Label_GrossWeight" xml:space="preserve">
+    <value>Gross Weight (In Kgs):</value>
+  </data>
+  <data name="Label_ProductName" xml:space="preserve">
+    <value>Product Name:</value>
+  </data>
+  <data name="Label_VendorCode" xml:space="preserve">
+    <value>Vendor Code:</value>
+  </data>
+  <data name="Label_Product" xml:space="preserve">
+    <value>Product:</value>
+  </data>
+  <data name="Label_ProposedBy" xml:space="preserve">
+    <value>Proposed By:</value>
+  </data>
+  <data name="Label_QAUser" xml:space="preserve">
+    <value>Quality User:</value>
+  </data>
+  <data name="Label_ReferenceNo" xml:space="preserve">
+    <value>Reference No:</value>
+  </data>
+  <data name="Label_RequestDate" xml:space="preserve">
+    <value>Created Date:</value>
+  </data>
+  <data name="Label_Status" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="Label_VendorAddress" xml:space="preserve">
+    <value>Vendor Address:</value>
+  </data>
+  <data name="Label_UnitCartonDimension" xml:space="preserve">
+    <value>Unit Carton Dimension:</value>
+  </data>
+  <data name="Label_Voltage" xml:space="preserve">
+    <value>Voltage (In Volts):</value>
+  </data>
+  <data name="Label_WorkflowStatus" xml:space="preserve">
+    <value>Workflow Status</value>
+  </data>
+  <data name="Section_Title_ABSQApproverSection" xml:space="preserve">
+    <value>ABSQ Approver Section</value>
+  </data>
+  <data name="Section_Title_ABSQTeamSection" xml:space="preserve">
+    <value>ABSQ Team Section</value>
+  </data>
+  <data name="Section_Title_ADBLevel1Section" xml:space="preserve">
+    <value>ADB Level 1 Section</value>
+  </data>
+  <data name="Section_Title_ADBLevel2Section" xml:space="preserve">
+    <value>ADB Level 2 Section</value>
+  </data>
+  <data name="Section_Title_MarketingLevel1Section" xml:space="preserve">
+    <value> Marketing Level 1 Section</value>
+  </data>
+  <data name="Section_Title_MarketingLevel2Section" xml:space="preserve">
+    <value> Marketing Level 2 Section</value>
+  </data>
+  <data name="Section_Title_NewArtworkBUHeadSection" xml:space="preserve">
+    <value>BU Approver Section</value>
+  </data>
+  <data name="Section_Title_NewArtworkDetailDocumentSection" xml:space="preserve">
+    <value>Artwork Detail Section</value>
+  </data>
+  <data name="Section_Title_QALevel1Section" xml:space="preserve">
+    <value>QA Level 1 Section</value>
+  </data>
+  <data name="Section_Title_QALevel2Section" xml:space="preserve">
+    <value>QA Level 2 Section</value>
+  </data>
+  <data name="Section_Title_SCMLevel1Section" xml:space="preserve">
+    <value>SCM Level 1 Section</value>
+  </data>
+  <data name="Section_Title_SCMLevel2Section" xml:space="preserve">
+    <value>SCM Level 2 Section</value>
+  </data>
+  <data name="Text_ApproveSuccess" xml:space="preserve">
+    <value>Artwork  is approved successfully</value>
+  </data>
+  <data name="Text_CompletedSuccess" xml:space="preserve">
+    <value>Artwork is completed successfully</value>
+  </data>
+  <data name="Text_SaveDraftSuccess" xml:space="preserve">
+    <value>Artwork save as draft successfully</value>
+  </data>
+  <data name="Text_SaveSuccess" xml:space="preserve">
+    <value>Artwork saved successfully</value>
+  </data>
+  <data name="Text_Success" xml:space="preserve">
+    <value>Artwork is submitted successfully</value>
+  </data>
+  <data name="Label_ArtworkType" xml:space="preserve">
+    <value>Artwork Type:</value>
+  </data>
+  <data name="Label_ProductFeature" xml:space="preserve">
+    <value>Product Feature:</value>
+  </data>
+  <data name="Label_Warranty" xml:space="preserve">
+    <value>Warranty (In Years):</value>
+  </data>
+  <data name="Label_ProductCategory" xml:space="preserve">
+    <value>Product Category:</value>
+  </data>
+  <data name="Label_ReworkRequired" xml:space="preserve">
+    <value>Is Rework recommended?:</value>
+  </data>
+  <data name="Label_NoofCartoninMaster" xml:space="preserve">
+    <value>No of Carton in Master:</value>
+  </data>
+  <data name="Error_ItemCode" xml:space="preserve">
+    <value>Item Code is required (Max allow 255 char).</value>
+  </data>
+  <data name="Error_ProductFeature" xml:space="preserve">
+    <value>Product Feature is required (Max allow 1000 char).</value>
+  </data>
+  <data name="Label_FNLQAPAttachment" xml:space="preserve">
+    <value>QAP:</value>
+  </data>
+  <data name="Label_FNLTechnicalSpecificationAttachment" xml:space="preserve">
+    <value>Technical Specifications:</value>
+  </data>
+  <data name="Text_DuplicateItemCode" xml:space="preserve">
+    <value>Item Code already exist.</value>
+  </data>
+  <data name="Error_FNLSamplePhoto" xml:space="preserve">
+    <value>Sample Photo is required.</value>
+  </data>
+  <data name="Label_FNLSamplePhoto" xml:space="preserve">
+    <value>Sample Photo:</value>
+  </data>
+  <data name="Grid_Title_ArtworkType" xml:space="preserve">
+    <value>Artwork Type</value>
+  </data>
+  <data name="Grid_Title_FileName" xml:space="preserve">
+    <value>File Name</value>
+  </data>
+  <data name="Error_FNLQAPAttachment" xml:space="preserve">
+    <value>QAP Attachment is required.</value>
+  </data>
+  <data name="Error_FNLTechnicalSpecificationAttachment" xml:space="preserve">
+    <value>Technical Specification Attachment is required.</value>
+  </data>
+  <data name="Label_FNLMarketingLevel1Attachment" xml:space="preserve">
+    <value>Sample Photo:</value>
+  </data>
+  <data name="Label_FNLQALevel1Attachment" xml:space="preserve">
+    <value>Sample Photo:</value>
+  </data>
+  <data name="Text_ReworkSuccess" xml:space="preserve">
+    <value>Artwork is sent back for rework</value>
+  </data>
+  <data name="Label_FNLADBLevel1Attachment" xml:space="preserve">
+    <value>Sample Photos:</value>
+  </data>
+  <data name="Label_FNLSCMLevel1Attachment" xml:space="preserve">
+    <value>Sample Photos:</value>
+  </data>
+  <data name="Label_FNLADBLevel2Attachment" xml:space="preserve">
+    <value>Sample Photos:</value>
+  </data>
+  <data name="Label_FNLMarketingLevel2Attachment" xml:space="preserve">
+    <value>Sample Photo:</value>
+  </data>
+  <data name="Label_FNLQALevel2Attachment" xml:space="preserve">
+    <value>Sample Photo:</value>
+  </data>
+  <data name="Label_FNLSCMLevel2Attachment" xml:space="preserve">
+    <value>Sample Photos:</value>
+  </data>
+  <data name="Error_ADBLevel1ReworkRequired" xml:space="preserve">
+    <value>is Rework required?</value>
+  </data>
+  <data name="Error_MarketingLevel1ReworkRequired" xml:space="preserve">
+    <value>is Rework required?</value>
+  </data>
+  <data name="Error_QALevel1ReworkRequired" xml:space="preserve">
+    <value>is Rework required?</value>
+  </data>
+  <data name="Error_SCMLevel1ReworkRequired" xml:space="preserve">
+    <value>is Rework required?</value>
+  </data>
+  <data name="Text_RejectedSuccess" xml:space="preserve">
+    <value>Artwork is rejected successfully</value>
+  </data>
+  <data name="Label_OldArtworkCreatedDate" xml:space="preserve">
+    <value>Old Artwork Created Date:</value>
+  </data>
+  <data name="Label_OldArtworkRejectedDate" xml:space="preserve">
+    <value>Old Artwork Rejected Date:</value>
+  </data>
+  <data name="Label_OldReferenceNo" xml:space="preserve">
+    <value>Old Reference No:</value>
+  </data>
+  <data name="Error_VendorAddress" xml:space="preserve">
+    <value>Vendor Address is required (Max allow 1000 char).</value>
+  </data>
+  <data name="Error_VendorCode" xml:space="preserve">
+    <value>Vendor Code is required (Max allow 255 char).</value>
+  </data>
+  <data name="Label_RequesterBusinessUnit" xml:space="preserve">
+    <value>Department:</value>
+  </data>
+  <data name="Text_ItemCodeLocked" xml:space="preserve">
+    <value>Artwork request for this Item code is in progress.</value>
+  </data>
+  <data name="Grid_Text_NoArtworkType" xml:space="preserve">
+    <value>No data in Artwork Type</value>
+  </data>
+  <data name="Text_AdminUserdelete" xml:space="preserve">
+    <value>Admin user can not delete document which is uploaded by ABSQ team.</value>
+  </data>
+  <data name="Label_OldArtworkRejectedComment" xml:space="preserve">
+    <value>Old Artwork Rejected Comment:</value>
+  </data>
+  <data name="Text_Note" xml:space="preserve">
+    <value>&amp;bull; Once Existing Artwork Workflow in progress with any item code, then other existing artwork flow can not start with the same item code. &lt;br&gt;
+&amp;bull; Once Existing Artwork Workflow is completed with any item code, then other existing artwork flow can not start with the same item code before 120 days.&lt;br&gt;
+&amp;bull; Once Existing Artwork is rejected with any item code , only ABS admin can retrive it. But another requestor user can create existing artwork using same item code after 120 days.</value>
+  </data>
+  <data name="Section_Title_NewArtworkDisclaimerSection" xml:space="preserve">
+    <value>Disclaimer</value>
+  </data>
+  <data name="Text_ArtworkTypeNote" xml:space="preserve">
+    <value>For downloading artworks type attachments, please </value>
+  </data>
+  <data name="Error_FNLABSQApprover" xml:space="preserve">
+    <value>Sample Photo is required</value>
+  </data>
+  <data name="Label_FNLABSQApprover" xml:space="preserve">
+    <value>Sample Photo:</value>
+  </data>
+  <data name="Error_MasterCartondimensionH" xml:space="preserve">
+    <value>Master Carton Dimension Height is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Error_MasterCartondimensionL" xml:space="preserve">
+    <value>Master Carton Dimension Lenght is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Error_MasterCartondimensionW" xml:space="preserve">
+    <value>Master Carton Dimension Width is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Error_UnitCartonDimensionH" xml:space="preserve">
+    <value>Unit Carton Dimension Height is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Error_UnitCartonDimensionL" xml:space="preserve">
+    <value>Unit Carton Dimension Length is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Error_UnitCartonDimensionW" xml:space="preserve">
+    <value>Unit Carton Dimension Width is required (Max allow 15 digits).</value>
+  </data>
+  <data name="Label_MasterCartondimensionH" xml:space="preserve">
+    <value>Master Carton Dimension (in mm):</value>
+  </data>
+  <data name="Label_MasterCartondimensionL" xml:space="preserve">
+    <value>Master Carton Dimension (in mm):</value>
+  </data>
+  <data name="Label_MasterCartondimensionW" xml:space="preserve">
+    <value>Master Carton Dimension (in mm):</value>
+  </data>
+  <data name="Label_UnitCartonDimensionH" xml:space="preserve">
+    <value>Unit Carton Dimension (in mm):</value>
+  </data>
+  <data name="Label_UnitCartonDimensionL" xml:space="preserve">
+    <value>Unit Carton Dimension (in mm):</value>
+  </data>
+  <data name="Label_UnitCartonDimensionW" xml:space="preserve">
+    <value>Unit Carton Dimension (in mm):</value>
+  </data>
+  <data name="Section_Title_ViewArtworkDetailDocumentSection" xml:space="preserve">
+    <value>View Artwork</value>
+  </data>
+  <data name="Text_ViewArtworkNote" xml:space="preserve">
+    <value>ABSQ User will Upload Artwork Type files.</value>
+  </data>
+  <data name="Text_UpdateSuccess" xml:space="preserve">
+    <value>Artwork file uploaded successfully.</value>
+  </data>
+  <data name="Error_Product" xml:space="preserve">
+    <value>Product is required.</value>
+  </data>
+  <data name="Text_SentEmailtoABSQFail" xml:space="preserve">
+    <value>Request Sent Fail.</value>
+  </data>
+  <data name="Text_SentEmailtoABSQSuccess" xml:space="preserve">
+    <value>Request has been email to ABSQ Team for Upload Artwork Type Files</value>
+  </data>
+  <data name="Error_StrArtworkTypeList" xml:space="preserve">
+    <value>Artwork Type is required.</value>
+  </data>
+  <data name="Label_ChangeDescription" xml:space="preserve">
+    <value>Change Description / Comment :</value>
+  </data>
+  <data name="Text_HoldSuccess" xml:space="preserve">
+    <value>Artwork has been hold successfully.</value>
+  </data>
+  <data name="Text_ResumeSuccess" xml:space="preserve">
+    <value>Artwork has been resumed.</value>
+  </data>
+  <data name="Grid_Title_Applicable" xml:space="preserve">
+    <value>Not Applicable (check if not applicable)</value>
+  </data>
+  <data name="Text_SaveAsDraftSuccess" xml:space="preserve">
+    <value>Artwork file save as draft successfully.</value>
+  </data>
+  <data name="Text_DeleteSuccess" xml:space="preserve">
+    <value>Artwork draft request is deleted successfully.</value>
+  </data>
+  <data name="Error_DomesticOrImported" xml:space="preserve">
+    <value>Domestic/Imported is required.</value>
+  </data>
+  <data name="Label_DomesticOrImported" xml:space="preserve">
+    <value>Domestic / Imported:</value>
+  </data>
+  <data name="Label_RequesterDomesticOrImported" xml:space="preserve">
+    <value>Requester's Domestic/Imported:</value>
+  </data>
+</root>

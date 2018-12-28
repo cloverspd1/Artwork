@@ -1,0 +1,69 @@
+﻿@using BEL.ArtworkWorkflow.Models.NewArtwork
+@using BEL.ArtworkWorkflow.Models.Common
+@using BEL.ArtworkWorkflow.Models.Master;
+@using BEL.CommonDataContract;
+@model List<NewArtworkAttachment>
+
+
+
+
+<div>
+    <table class="table table-hover table-bordered someTable">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>@Html.ResourceValue("Grid_Title_ArtworkType", ResourceNames.Artwork)</th>
+                <th>@Html.ResourceValue("Grid_Title_FileName", ResourceNames.Artwork)</th>
+                @*<th>@Html.ResourceValue("Grid_Title_Action", ResourceNames.Common)</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count() > 0)
+            {
+                for (int idx = 0; idx < Model.Count; idx++)
+                {
+                    if (Model[idx].ItemAction != null && Model[idx].ItemAction != ItemActionStatus.DELETED)
+                    {
+                        @Html.Hidden("ArtworkAttachmentTempList[" + idx + "].Index", Model[idx].Index)
+                        @Html.Hidden("ArtworkAttachmentTempList[" + idx + "].ArtworkType", Model[idx].ArtworkType)
+                        @Html.Hidden("ArtworkAttachmentTempList[" + idx + "].ArtworkTypeCode", Model[idx].ArtworkTypeCode)
+                        @Html.Hidden("ArtworkAttachmentTempList[" + idx + "].ID", Model[idx].ID)
+                        @Html.Hidden("ArtworkAttachmentTempList[" + idx + "].RequestID", Model[idx].RequestID)
+
+                        @Html.Hidden("ArtworkAttachmentTempList[" + idx + "].RequestBy", Model[idx].RequestBy)
+                        @Html.Hidden("ArtworkAttachmentTempList[" + idx + "].RequestDate", Model[idx].RequestDate)
+                        @Html.Hidden("ArtworkAttachmentTempList[" + idx + "].ItemAction", Model[idx].ItemAction)
+                        @Html.Hidden("ArtworkAttachmentTempList[" + idx + "].FileName", Model[idx].FileName)
+                        @Html.Hidden("ArtworkAttachmentTempList[" + idx + "].Status", Model[idx].Status)
+
+
+                        string divAttachmentId = "AttachmentArtworkType" + idx;
+
+
+                        <tr>
+                            <td>@(idx + 1)</td>
+                            <td>@(Model[idx].ArtworkType)</td>
+
+
+                            <td class="newArtworkAttachments">
+                                <div id="@divAttachmentId" data-appname="@SiteURLs.ARTWORKSITEURL">
+                                </div>
+                                @Html.TextBoxFor(m => m[idx].FileNameList, new { @class = "notvisible", @id = "ArtworkAttachmentTempList[" + idx + "].FileNameList", @Name = "ArtworkAttachmentTempList[" + idx + "].FileNameList", @data_val = "true", @data_val_required = "Artwork Attachtment is required." })
+                                @Html.ValidationMessageFor(m => m[idx].FileNameList, "Artwork Attachtment is required.", new { @data_valmsg_for = "ArtworkAttachmentTempList[" + idx + "].FileNameList" })
+                            </td>
+
+                        </tr>
+                    }
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="9" class="text-center text-danger">
+                        @Html.ResourceValue("Grid_Text_NoData", ResourceNames.Common)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

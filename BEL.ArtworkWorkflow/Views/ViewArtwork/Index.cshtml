@@ -1,0 +1,70 @@
+﻿@using BEL.ArtworkWorkflow.Models.ViewArtwork
+@using BEL.CommonDataContract
+@using BEL.ArtworkWorkflow.Models.Common
+@model  ViewArtworkDetailSection
+@{
+
+    ViewBag.Title = "View Artwork";
+
+    string strBU = string.Empty;
+
+}
+
+@section buttons{
+    @Html.Partial("_ButtonGroup", new List<Button>() { new Button(){ IsVisible = false, Name="Update", Icon= "fa fa-check-square", JsFunction="Submit", ButtonStatus = ButtonActionStatus.NextApproval},
+                                                       new Button(){ IsVisible = false, Name="Send Request to ABSQ", Icon= "fa fa-share", JsFunction="Submit", ButtonStatus = ButtonActionStatus.SaveAsDraft},
+                                                       new Button(){ IsVisible = false, Name="Save as Draft", Icon= "fa fa-save", JsFunction="Submit", ButtonStatus = ButtonActionStatus.SaveAndNoStatusUpdate}
+   });
+}
+
+
+
+
+<div id="pageFeedback">
+    <div id="tab-general">
+        <div class="row mbl">
+            <div class="col-lg-12">
+                <div class="tab-content responsive " id="generalTabContent">
+                    @if (Model != null)
+                    {
+
+                        strBU = Model.BusinessUnit;
+                        <div class="card ">
+                            <div class="card-head" data-toggle="collapse" data-target="#artworkdetailsection">
+                                @Html.ResourceValue("Section_Title_ViewArtworkDetailDocumentSection", ResourceNames.Artwork)
+                                <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                            </div>
+                            <div class="card-body in" id="artworkdetailsection">
+                                <div class="form-horizontal">
+                                    <p><span class="text-danger text-default-light small-font">@(new HtmlString(@Html.ResourceValue("Text_ViewArtworkNote", ResourceNames.Artwork)))</span></p>
+                                    <p><span class="text-danger text-default-light small-font">@Html.ResourceValue("Text_Mandatory", ResourceNames.Common)</span></p>
+                                    @Html.Partial("_viewArtworkDetailSection", Model)
+
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div id="divAddProductSerial"></div>
+<div class="scroll-top-wrapper ">
+    <i class="fa fa-chevron-up">
+    </i>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/viewartworkindex")
+}
+
+
+

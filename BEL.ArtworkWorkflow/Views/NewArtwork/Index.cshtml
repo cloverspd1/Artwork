@@ -1,0 +1,325 @@
+﻿@using BEL.ArtworkWorkflow.Models.NewArtwork
+@using BEL.CommonDataContract
+@using BEL.ArtworkWorkflow.Models.Common
+@model  IContract
+@{
+    NewArtworkContract contract = Model as NewArtworkContract;
+    NewArtworkForm form = contract.Forms.FirstOrDefault() as NewArtworkForm;
+    ViewBag.Title = "New Artwork";
+    string strBU = string.Empty;
+    NewArtworkDetailSection newArtworkDetailSection = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.ARTWORKDETAILSECTION)) as NewArtworkDetailSection;
+    NewArtworkBUHeadApproverSection newArtworkBUHeadSection = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.BUHEADAPPROVERSECTION)) as NewArtworkBUHeadApproverSection;
+    NewArtworkABSQTeamSection newArtworkABSQTeamSection = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.ABSQTEAMSECTION)) as NewArtworkABSQTeamSection;
+    NewArtworkABSQApproverSection newArtworkABSQApproverSection = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.ABSQAPPROVERSECTION)) as NewArtworkABSQApproverSection;
+    NewArtworkQALevel1Section newArtworkQALevel1Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.QALEVEL1SECTION)) as NewArtworkQALevel1Section;
+    NewArtworkSCMLevel1Section newArtworkSCMLevel1Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.SCMLEVEL1SECTION)) as NewArtworkSCMLevel1Section;
+    NewArtworkADBLevel1Section newArtworkADBLevel1Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.ADBLEVEL1SECTION)) as NewArtworkADBLevel1Section;
+    NewArtworkMarketingLevel1Section newArtworkMarketingLevel1Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.MARKETINGLEVEL1SECTION)) as NewArtworkMarketingLevel1Section;
+    NewArtworkQALevel2Section newArtworkQALevel2Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.QALEVEL2SECTION)) as NewArtworkQALevel2Section;
+    NewArtworkSCMLevel2Section newArtworkSCMLevel2Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.SCMLEVEL2SECTION)) as NewArtworkSCMLevel2Section;
+    NewArtworkADBLevel2Section newArtworkADBLevel2Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.ADBLEVEL2SECTION)) as NewArtworkADBLevel2Section;
+    NewArtworkMarketingLevel2Section newArtworkMarketingLevel2Section = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.MARKETINGLEVEL2SECTION)) as NewArtworkMarketingLevel2Section;
+}
+@if (form != null)
+{
+    @section buttons{
+        @Html.Partial("_ButtonGroup", form.Buttons)
+    }
+
+    if (!string.IsNullOrEmpty(form.FormStatus))
+    {
+        <div class="card-body text-right pad-bot-15">
+            <div class="label label-primary">
+                @form.FormStatus
+            </div>
+        </div>
+    }
+
+
+    <div id="pageFeedback">
+        <div id="tab-general">
+            <div class="row mbl">
+                <div class="col-lg-12">
+                    <div class="tab-content responsive " id="generalTabContent">
+                        @if (newArtworkDetailSection != null)
+                        {
+                            string sectionActiveCss = newArtworkDetailSection.IsActive ? string.Empty : "disabled";
+                            strBU = newArtworkDetailSection.BusinessUnit;
+                            string isRetriveCase = !string.IsNullOrEmpty(Request.QueryString["isRetrieve"]) ? "Style=background-color:#F2B7B7" : string.Empty;
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#artworkdetailsection">
+                                    @Html.ResourceValue("Section_Title_NewArtworkDetailDocumentSection", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="artworkdetailsection" @isRetriveCase>
+                                    <div class="form-horizontal">
+                                        <p><span class="text-danger text-default-light small-font">@Html.ResourceValue("Text_Mandatory", ResourceNames.Common)</span></p>
+                                        @Html.Partial("_newArtworkDetailSection", newArtworkDetailSection)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        @if (newArtworkBUHeadSection != null)
+                        {
+                            string sectionActiveCss = newArtworkBUHeadSection.IsActive ? string.Empty : "disabled";
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#buheadapproversection">
+                                    @Html.ResourceValue("Section_Title_NewArtworkBUHeadSection", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="buheadapproversection">
+                                    <div class="form-horizontal">
+
+                                        @Html.Partial("_buHeadSection", newArtworkBUHeadSection)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        @if (newArtworkABSQTeamSection != null)
+                        {
+                            string sectionActiveCss = newArtworkABSQTeamSection.IsActive ? string.Empty : "disabled";
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#absqteamsection">
+                                    @Html.ResourceValue("Section_Title_ABSQTeamSection", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="absqteamsection">
+                                    <div class="form-horizontal">
+
+                                        @Html.Partial("_aBSQTeamSection", newArtworkABSQTeamSection)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        @if (newArtworkABSQApproverSection != null)
+                        {
+                            string sectionActiveCss = newArtworkABSQApproverSection.IsActive ? string.Empty : "disabled";
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#absqapproversection">
+                                    @Html.ResourceValue("Section_Title_ABSQApproverSection", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="absqapproversection">
+                                    <div class="form-horizontal">
+
+                                        @Html.Partial("_aBSQApproverSection", newArtworkABSQApproverSection)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+
+                        @if (newArtworkQALevel1Section != null)
+                        {
+                            string sectionActiveCss = newArtworkQALevel1Section.IsActive ? string.Empty : "disabled";
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#qalevel1section">
+                                    @Html.ResourceValue("Section_Title_QALevel1Section", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="qalevel1section">
+                                    <div class="form-horizontal">
+
+                                        @Html.Partial("_qALevel1Section", newArtworkQALevel1Section)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        @if (newArtworkSCMLevel1Section != null)
+                        {
+                            string sectionActiveCss = newArtworkSCMLevel1Section.IsActive ? string.Empty : "disabled";
+
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#scmlevel1section">
+                                    @Html.ResourceValue("Section_Title_SCMLevel1Section", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="scmlevel1section">
+                                    <div class="form-horizontal">
+
+                                        @Html.Partial("_sCMLevel1Section", newArtworkSCMLevel1Section)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        @if (newArtworkADBLevel1Section != null)
+                        {
+                            string sectionActiveCss = newArtworkADBLevel1Section.IsActive ? string.Empty : "disabled";
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#adblevel1section">
+                                    @Html.ResourceValue("Section_Title_ADBLevel1Section", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="adblevel1section">
+                                    <div class="form-horizontal">
+
+                                        @Html.Partial("_aDBLevel1Section", newArtworkADBLevel1Section)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        @if (newArtworkMarketingLevel1Section != null)
+                        {
+                            string sectionActiveCss = newArtworkMarketingLevel1Section.IsActive ? string.Empty : "disabled";
+
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#marketinglevel1section">
+                                    @strBU    @Html.ResourceValue("Section_Title_MarketingLevel1Section", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="marketinglevel1section">
+                                    <div class="form-horizontal">
+
+                                        @Html.Partial("_marketingLevel1Section", newArtworkMarketingLevel1Section)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        @if (newArtworkQALevel2Section != null)
+                        {
+                            string sectionActiveCss = newArtworkQALevel2Section.IsActive ? string.Empty : "disabled";
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#qalevel2section">
+                                    @Html.ResourceValue("Section_Title_QALevel2Section", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="qalevel2section">
+                                    <div class="form-horizontal">
+
+                                        @Html.Partial("_qALevel2Section", newArtworkQALevel2Section)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        @if (newArtworkSCMLevel2Section != null)
+                        {
+                            string sectionActiveCss = newArtworkSCMLevel2Section.IsActive ? string.Empty : "disabled";
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#scmlevel2section">
+                                    @Html.ResourceValue("Section_Title_SCMLevel2Section", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="scmlevel2section">
+                                    <div class="form-horizontal">
+
+                                        @Html.Partial("_sCMLevel2Section", newArtworkSCMLevel2Section)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        @if (newArtworkADBLevel2Section != null)
+                        {
+                            string sectionActiveCss = newArtworkADBLevel2Section.IsActive ? string.Empty : "disabled";
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#adblevel2section">
+                                    @Html.ResourceValue("Section_Title_ADBLevel2Section", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="adblevel2section">
+                                    <div class="form-horizontal">
+
+                                        @Html.Partial("_aDBLevel2Section", newArtworkADBLevel2Section)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        @if (newArtworkMarketingLevel2Section != null)
+                        {
+                            string sectionActiveCss = newArtworkMarketingLevel2Section.IsActive ? string.Empty : "disabled";
+                            <div class="card @sectionActiveCss">
+                                <div class="card-head" data-toggle="collapse" data-target="#marketinglevel2section">
+                                    @strBU  @Html.ResourceValue("Section_Title_MarketingLevel2Section", ResourceNames.Artwork)
+                                    <div class="btn collapse-btn"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                                <div class="card-body" id="marketinglevel2section">
+                                    <div class="form-horizontal">
+
+                                        @Html.Partial("_marketingLevel2Section", newArtworkMarketingLevel2Section)
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+
+
+
+
+
+
+                        @{ApplicationStatusSection appStatus = form.SectionsList.FirstOrDefault(f => f != null && f.SectionName.Equals(SectionNameConstant.APPLICATIONSTATUS)) as ApplicationStatusSection;
+
+                        if (appStatus != null)
+                        {
+                            @Html.Partial("_ApplicationStatus", appStatus)
+                        }
+
+                        ActivityLogSection activityLog = form.SectionsList.FirstOrDefault(f => f.SectionName.Equals(ArtworkSectionName.ACTIVITYLOG)) as ActivityLogSection;
+                        if (activityLog != null)
+                        {
+                            @Html.Partial("_ActivityLogs", activityLog, new ViewDataDictionary { { "Resources", ResourceNames.Feedbacks } })
+                        }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div id="divAddProductSerial"></div>
+    <div class="scroll-top-wrapper ">
+        <i class="fa fa-chevron-up">
+        </i>
+    </div>
+    if (newArtworkDetailSection != null)
+    {
+        if (newArtworkDetailSection.Status == "Completed" || newArtworkDetailSection.Status == "Rejected")
+        {
+    
+                @Html.Partial("_printNewArtwork", Model)
+        }
+    }
+
+
+    @section scripts{
+        @Scripts.Render("~/bundles/newartworkindex")
+    }
+}
+
+

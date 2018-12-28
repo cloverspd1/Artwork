@@ -1,0 +1,646 @@
+﻿@using BEL.ArtworkWorkflow.Models.NewArtwork
+@using BEL.ArtworkWorkflow.Models.Common;
+@using BEL.ArtworkWorkflow.Models.Master;
+@using BEL.CommonDataContract;
+@model NewArtworkDetailSection
+
+<script type="text/javascript">
+    @{
+
+        ApproverMaster approverlist = Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.APPROVERMASTER)) as ApproverMaster;
+        ProductCategoryMaster prodlist = Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.PRODUCTCATEGORYMASTER)) as ProductCategoryMaster;
+        BusinessUnitMaster businessUnitList = Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.BUSINESSUNITMASTER)) as BusinessUnitMaster;
+        ArtworkTypeMaster artworkTypeList = Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.ARTWORKTYEMASTER)) as ArtworkTypeMaster;
+
+         List<MasterDataItem> domesticOrImportedItems = new List<MasterDataItem>();
+        domesticOrImportedItems.Add(new MasterDataItem("Local", "Local"));
+        domesticOrImportedItems.Add(new MasterDataItem("Imported", "Imported"));
+
+      }
+    var ProductCategoryList = JSON.parse(@(new HtmlString(Json.Encode(Newtonsoft.Json.JsonConvert.SerializeObject(prodlist.Items.OrderBy(p => p.Title).ToList())))));
+    var ArtworkTypeList = JSON.parse(@(new HtmlString(Json.Encode(Newtonsoft.Json.JsonConvert.SerializeObject(artworkTypeList.Items.OrderBy(x => x.Title).ToList())))));
+    var Approverlist = JSON.parse(@(new HtmlString(Json.Encode(Newtonsoft.Json.JsonConvert.SerializeObject(approverlist.Items.OrderBy(p => p.Title).ToList())))));
+
+</script>
+<div id="divNewArtworkSection">
+    @using (Ajax.BeginForm("SaveArtworkDetailSection", "NewArtwork", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        LoadingElementId = "loading",
+        OnFailure = "OnFailure",
+        OnSuccess = "OnSuccess",
+        OnBegin = "BeginClient"
+    }, new { enctype = "multipart/form-data" }))
+    {
+
+        @Html.HiddenFor(m => m.ListDetails[0].ItemId)
+        @Html.HiddenFor(m => m.ListDetails[0].ListName)
+        @Html.HiddenFor(m => m.SectionName)
+        @Html.HiddenFor(m => m.ActionStatus)
+        @Html.HiddenFor(m => m.Status)
+
+        @Html.HiddenFor(m => m.ABSAdmin)
+        @Html.HiddenFor(m => m.ABSAdminName)
+
+       
+        @*@Html.Partial("_CurrentApprover", Model.CurrentApprover ?? new ApplicationStatus())*@
+        @Html.AntiForgeryToken()
+        if (!string.IsNullOrEmpty(Model.OldReferenceNo))
+        {
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            @Html.LabelFor(m => m.OldReferenceNo, ResourceNames.Artwork)
+                        </label>
+                        <div class="col-md-8 ">
+                            <div class="form-control noborder">
+                                @Html.DisplayFor(m => m.OldReferenceNo, ResourceNames.Artwork)
+                                @Html.HiddenFor(m => m.OldReferenceNo)
+                                @Html.HiddenFor(m => m.OldRequestId)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            @Html.LabelFor(m => m.OldArtworkCreatedDate, ResourceNames.Artwork)
+                        </label>
+                        <div class="col-md-8 ">
+                            <div class="form-control noborder">
+                                @(Model.OldArtworkCreatedDate.HasValue ? Model.OldArtworkCreatedDate.Value.ToShortDateString() : string.Empty)
+                                @Html.HiddenFor(m => m.OldArtworkCreatedDate)
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            @Html.LabelFor(m => m.OldArtworkRejectedDate, ResourceNames.Artwork)
+                        </label>
+                        <div class="col-md-8 ">
+                            <div class="form-control noborder">
+                                @(Model.OldArtworkRejectedDate.HasValue ? Model.OldArtworkRejectedDate.Value.ToShortDateString() : string.Empty)
+                                @Html.HiddenFor(m => m.OldArtworkRejectedDate)
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            @Html.LabelFor(m => m.OldArtworkRejectedComment, ResourceNames.Artwork)
+                        </label>
+                        <div class="col-md-8 ">
+                            <div class="form-control noborder">
+                                @Html.DisplayFor(m => m.OldArtworkRejectedComment, ResourceNames.Artwork)
+                                @Html.HiddenFor(m => m.OldArtworkRejectedComment)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.RequestDate, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @(Model.RequestDate.HasValue ? Model.RequestDate.Value.ToShortDateString() : "")
+                            @Html.Hidden("RequestDate", Model.RequestDate.HasValue ? Model.RequestDate.Value.ToShortDateString() : "")
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.ProposedBy, ResourceNames.Artwork)
+
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @(string.IsNullOrEmpty(Model.ProposedByName) ? ViewBag.UserName : Model.ProposedByName)
+                            @Html.Hidden("ProposedBy", string.IsNullOrEmpty(Model.ProposedBy) ? (string)ViewBag.UserID : Model.ProposedBy)
+                            @Html.Hidden("ProposedByName", string.IsNullOrEmpty(Model.ProposedByName) ? (string)ViewBag.UserName : Model.ProposedByName)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.ReferenceNo, ResourceNames.Artwork)
+
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            <span class="text-danger" id="ReferenceNo">
+                                <b>
+                                    @Html.DisplayFor(m => m.ReferenceNo, ResourceNames.Artwork)
+                                    @Html.HiddenFor(m => m.ReferenceNo)
+                                </b>
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.Status, ResourceNames.Artwork)
+
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            <span class="text-danger" id="Status">
+                                <b>
+                                    @(string.IsNullOrEmpty(Model.WorkflowStatus) ? Html.ResourceValue("Text_New", ResourceNames.Common) : Model.WorkflowStatus)
+                                </b>
+                            </span>
+                            @Html.HiddenFor(m => m.Status)
+                            @Html.HiddenFor(m => m.WorkflowStatus)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.ItemCode, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+
+                        @if (string.IsNullOrEmpty(Model.Status) || Model.Status.Equals("Draft"))
+                        {
+                            @Html.TextBoxFor(m => m.ItemCode, new { maxLength = 255, @class = "form-control alphanumericwithspace disablepaste", data_toggle = "tooltip", title = "Max 255 characters" })
+                            @Html.ValidationMessageFor(m => m.ItemCode, ResourceNames.Artwork)
+
+                        }
+                        else
+                        {
+                            <div class="form-control noborder">
+                                @Html.DisplayFor(m => m.ItemCode, new { @class = "form-control" })
+                                @Html.HiddenFor(m => m.ItemCode)
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.BusinessUnit, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder disabled">
+                            @Html.DisplayFor(m => m.BusinessUnit, new { @class = "form-control" })
+                            <div class="hide">
+                                @Html.DropDownListFor(m => m.BusinessUnit, new SelectList((Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.BUSINESSUNITMASTER)) as BusinessUnitMaster).Items.OrderBy(x => x.Title), "Value", "Title"), "Select", new { @class = "form-control", @data_selected = Model.BusinessUnit })
+                                @Html.ValidationMessageFor(m => m.BusinessUnit, ResourceNames.Artwork)
+                            </div>
+                        </div>
+                        @Html.HiddenFor(m => m.BusinessUnit)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.DomesticOrImported, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @*@Html.DisplayFor(m => m.DomesticOrImported, new { @class = "form-control" })*@
+                            @Html.DropDownListFor(m => m.DomesticOrImported, new SelectList((domesticOrImportedItems).ToList(), "Value", "Title"), "Select", new { @class = "form-control", @data_selected = Model.DomesticOrImported })
+                            @Html.ValidationMessageFor(m => m.DomesticOrImported, ResourceNames.Artwork)
+                        </div>
+                        @*@Html.HiddenFor(m => m.DomesticOrImported)*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.ProductCategory, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.DropDownListFor(m => m.ProductCategory, new SelectList(new List<SelectListItem>()), "Select", new { @class = "form-control", @data_selected = Model.ProductCategory })
+                            @Html.ValidationMessageFor(m => m.ProductCategory, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.ModelName, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextAreaFor(m => m.ModelName, new { maxLength = 255, @class = "form-control alphanumericwithspace disablepaste", data_toggle = "tooltip", title = "Max 255 characters" })
+                            @Html.ValidationMessageFor(m => m.ModelName, ResourceNames.Artwork)
+                            <span class="text-danger text-default-light small-font">
+                                (It is recommended to use model name less than 30 characters)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(m => m.Color, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextAreaFor(m => m.Color, new { maxLength = 255, @class = "form-control", data_toggle = "tooltip", title = "Max 255 characters" })
+                            @Html.ValidationMessageFor(m => m.Color, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.BarCode, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextBoxFor(m => m.BarCode, new { maxLength = 15, @class = "form-control integeronly", data_toggle = "tooltip", title = "Max 15 digit" })
+                            @Html.ValidationMessageFor(m => m.BarCode, ResourceNames.Artwork)
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            @{string textboxStyle = "width:70px; display: inline;"; }
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.MasterCartondimensionL, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+
+                            @*L @Html.TextBoxFor(m => m.MasterCartondimensionL, new { maxLength = 15, @class = "form-control integeronly valuecheck", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" }) X
+                                W @Html.TextBoxFor(m => m.MasterCartondimensionW, new { maxLength = 15, @class = "form-control integeronly valuecheck", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" }) X
+                                H @Html.TextBoxFor(m => m.MasterCartondimensionH, new { maxLength = 15, @class = "form-control integeronly valuecheck", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" })*@
+
+                            L @Html.TextBoxFor(m => m.MasterCartondimensionL, new { maxLength = 15, @class = "form-control integeronly", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" }) X
+                            W @Html.TextBoxFor(m => m.MasterCartondimensionW, new { maxLength = 15, @class = "form-control integeronly", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" }) X
+                            H @Html.TextBoxFor(m => m.MasterCartondimensionH, new { maxLength = 15, @class = "form-control integeronly", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" })
+
+                            @Html.ValidationMessageFor(m => m.MasterCartondimensionL, ResourceNames.Artwork)
+                            @Html.ValidationMessageFor(m => m.MasterCartondimensionW, ResourceNames.Artwork)
+                            @Html.ValidationMessageFor(m => m.MasterCartondimensionH, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.UnitCartonDimensionL, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @*L @Html.TextBoxFor(m => m.UnitCartonDimensionL, new { maxLength = 15, @class = "form-control integeronly valuecheck", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" }) X
+                                W @Html.TextBoxFor(m => m.UnitCartonDimensionW, new { maxLength = 15, @class = "form-control integeronly valuecheck", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" }) X
+                                H @Html.TextBoxFor(m => m.UnitCartonDimensionH, new { maxLength = 15, @class = "form-control integeronly valuecheck", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" })*@
+
+                            L @Html.TextBoxFor(m => m.UnitCartonDimensionL, new { maxLength = 15, @class = "form-control integeronly", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" }) X
+                            W @Html.TextBoxFor(m => m.UnitCartonDimensionW, new { maxLength = 15, @class = "form-control integeronly", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" }) X
+                            H @Html.TextBoxFor(m => m.UnitCartonDimensionH, new { maxLength = 15, @class = "form-control integeronly", @style = @textboxStyle, data_toggle = "tooltip", title = "Max 15 digit" })
+
+
+                            @Html.ValidationMessageFor(m => m.UnitCartonDimensionL, ResourceNames.Artwork)
+                            @Html.ValidationMessageFor(m => m.UnitCartonDimensionW, ResourceNames.Artwork)
+                            @Html.ValidationMessageFor(m => m.UnitCartonDimensionH, ResourceNames.Artwork)
+                            <span class="valuecheckmsg field-validation-error"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.MRP, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextBoxFor(m => m.MRP, new { maxLength = 15, @class = "form-control numberonly fixedtwodecimal", data_toggle = "tooltip", title = "Max 15 digit" })
+                            @Html.ValidationMessageFor(m => m.MRP, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="FileNameList" class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.NoofCartoninMaster, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        @Html.TextBoxFor(m => m.NoofCartoninMaster, new { maxLength = 15, @class = "form-control integeronly", data_toggle = "tooltip", title = "Max 15 digit" })
+                        @Html.ValidationMessageFor(m => m.NoofCartoninMaster, ResourceNames.Artwork)
+
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(m => m.Voltage, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @*@Html.TextBoxFor(m => m.Voltage, new { maxLength = 15, @class = "form-control numberonly fixedtwodecimal", data_toggle = "tooltip", title = "Max 15 digit" })*@
+                            @Html.TextBoxFor(m => m.Voltage, new { maxLength = 15, @class = "form-control", data_toggle = "tooltip", title = "Max 15 chars." })
+                            @Html.ValidationMessageFor(m => m.Voltage, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(m => m.Power, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @*@Html.TextBoxFor(m => m.Power, new { maxLength = 15, @class = "form-control numberonly fixedtwodecimal", data_toggle = "tooltip", title = "Max 15 digit" })*@
+                            @Html.TextBoxFor(m => m.Power, new { maxLength = 15, @class = "form-control", data_toggle = "tooltip", title = "Max 15 chars." })
+                            @Html.ValidationMessageFor(m => m.Power, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(m => m.NetWeight, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextBoxFor(m => m.NetWeight, new { maxLength = 15, @class = "form-control numberonly fixedtwodecimal", data_toggle = "tooltip", title = "Max 15 digit" })
+                            @Html.ValidationMessageFor(m => m.NetWeight, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(m => m.GrossWeight, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextBoxFor(m => m.GrossWeight, new { maxLength = 15, @class = "form-control numberonly fixedtwodecimal", data_toggle = "tooltip", title = "Max 15 digit" })
+                            @Html.ValidationMessageFor(m => m.GrossWeight, ResourceNames.Artwork)
+
+                            @*<span class="valuecheckmsg1 field-validation-error"></span>*@
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.Warranty, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextBoxFor(m => m.Warranty, new { maxLength = 15, @class = "form-control numberonly fixedtwodecimal", data_toggle = "tooltip", title = "Max 15 digit" })
+                            @Html.ValidationMessageFor(m => m.Warranty, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.ProductFeature, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextAreaFor(m => m.ProductFeature, new { maxLength = 1000, @class = "form-control", data_toggle = "tooltip", title = "Max 1000 characters" })
+                            @Html.ValidationMessageFor(m => m.ProductFeature, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.Product, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.RadioButtonFor(m => m.Product, "Local", new { @id = "Product1" })
+                            <label for="Product1">Local</label>
+                            @Html.RadioButtonFor(m => m.Product, "Import", new { @id = "Product2" })
+                            <label for="Product2">Import</label>
+                            @Html.HiddenFor(m => m.Product)
+                            @Html.ValidationMessageFor(m => m.Product, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+            </div>
+
+        </div>
+
+        <div class="row ">
+            <div class="col-sm-6 localProduct">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.VendorCode, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @*@Html.TextBoxFor(m => m.VendorCode, new { maxLength = 255, @class = "form-control", data_toggle = "tooltip", title = "Max 255 characters" })
+                                @Html.ValidationMessageFor(m => m.VendorCode, ResourceNames.Artwork)*@
+                            @Html.TextBoxFor(m => m.VendorCode, new { @class = "user-tags", @min_chars = 3, @data_hint = "Type and Select by Vendor Code", @data_url = "/NewArtwork/GetAllVendors", @data_limit = "1", @data_onadd = "VendorCodeAdded", @data_onremove = "VendorCodeRemoved", @data_displaycolumn = "name" })
+                            @Html.ValidationMessageFor(m => m.VendorCode, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6 localProduct">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.VendorAddress, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextAreaFor(m => m.VendorAddress, new { maxLength = 1000, @class = "form-control", data_toggle = "tooltip", title = "Max 1000 characters" })
+                            @Html.ValidationMessageFor(m => m.VendorAddress, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-sm-6 attachment">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+
+                        @Html.LabelFor(m => m.FNLSamplePhoto, ResourceNames.Artwork)
+
+                    </label>
+                    <div class="col-md-8 ">
+                        <span class="text-danger text-default-light small-font">
+                            (Max. up to 5MB per file and you can upload maximum 10 files.)
+                        </span>
+                        <div id="AttachmentSamplePhoto" data-appname="@SiteURLs.ARTWORKSITEURL">
+                        </div>
+                        @Html.TextBoxFor(m => m.FNLSamplePhoto, new { @class = "notvisible" })
+                        @Html.ValidationMessageFor(m => m.FNLSamplePhoto, ResourceNames.Artwork)
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.LabelFor(m => m.ArtworkType, ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder artworktypemultiselect">
+                            @Html.ListBox("ArtworkTypeList", new MultiSelectList((Model.MasterData.FirstOrDefault(x => x.NameOfMaster.Equals(ArtworkMasters.ARTWORKTYEMASTER)) as ArtworkTypeMaster).Items.OrderBy(x => x.Title), "Value", "Title"), new { @id = "ArtworkTypeList", @Name = "ArtworkTypeList", @class = "form-control", @data_selected = Model.ArtworkType })
+                            @Html.ValidationMessageFor(m => m.ArtworkType, ResourceNames.Artwork)
+                            @Html.ValidationMessage("ArtworkTypeList", Html.ResourceValue("Error_ArtworkType", ResourceNames.Artwork))
+                            @Html.HiddenFor(m => m.ArtworkType)
+                        </div>
+                        <span class="text-danger text-default-light small-font">
+                            (please attach sample for the additional artworks.)
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        <span class="text-danger text-default-light">*</span>
+                        @Html.ResourceValue("Label_ChangeDescription", ResourceNames.Artwork)
+                    </label>
+                    <div class="col-md-8 ">
+                        <div class="form-control noborder">
+                            @Html.TextAreaFor(m => m.CurrentApprover.Comments, new { maxlength = 1000, @class = "form-control", @data_val = "true", @data_val_required = "Change Description/Comments is required (max allow 1000 char.)", data_toggle = "tooltip", title = "Max 1000 characters" })
+                            @Html.HiddenFor(x => x.CurrentApprover.Approver)
+                            @Html.HiddenFor(x => x.CurrentApprover.Role)
+                            @Html.HiddenFor(x => x.CurrentApprover.AssignDate)
+                            @Html.ValidationMessageFor(m => m.CurrentApprover.Comments, ResourceNames.Artwork)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Html.Partial("_Approvers", Model.ApproversList)
+    }
+</div>
